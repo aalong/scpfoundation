@@ -9,4 +9,4 @@ title: Your New Jekyll Site
 
 ### Страницы
 
-- [Разметка](/markup.html)
+- [Разметка](markup.html)
