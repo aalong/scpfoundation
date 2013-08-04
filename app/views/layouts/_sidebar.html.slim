@@ -5,7 +5,7 @@ div.sidebar.bs-docs-sidebar.bs-affix
         = t('.navigation')
     div.nav-collapse.collapse.sidebar-responsive-collapse
       li.nav-header
-        = t('.main')
+        = t('.jump_to')
       li = link_to t('.objects'), '/pages'
       - if true #current_user
         li = link_to t('.sandbox'), '/pages'
@@ -15,7 +15,7 @@ div.sidebar.bs-docs-sidebar.bs-affix
           li = link_to t('.admin'), '/pages'
 
       li.nav-header
-        = t('.additional')
+        = t('.sections')
       li = link_to t('.experiment_logs'), '/pages'
       li = link_to t('.incident_reports'), '/pages'
       li = link_to t('.interviews'), '/pages'

@@ -143,7 +143,8 @@ ru:
       back: '&larr; Назад к обсуждению'
   layouts:
     sidebar:
-      main: 'Разделы'
+      jump_to: Переход
+      sections: 'Разделы'
       navigation: 'Навигация'
       objects: 'Объекты'
       sandbox: 'Полигон'
