@@ -1,14 +1,17 @@
 
-$sansFontFamily: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
-$serifFontFamily: Georgia, "Times New Roman", Times, serif;
+$sans-font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+$serif-font-family: Georgia, "Times New Roman", Times, serif;
 
 $font-size-base: 14px;
-$font-family-base: $sansFontFamily;
+$font-family-base: $sans-font-family;
 
 $link-color: #06a;
 $link-hover-color: #a00;
 
 $navbar-height: 31px;
+
+$footer-background: #fff;
+$footer-color: #888;
 
 @import "twitter/bootstrap";
 @import "font-awesome";
@@ -29,7 +32,8 @@ img {
 
 .navbar-notifications {
   padding-right: 8px;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 @import "sidebar";
+@import "footer";

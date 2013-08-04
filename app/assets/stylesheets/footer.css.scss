@@ -1,0 +1,20 @@
+div.prefooter {
+  clear: both;
+  @include clearfix();
+}
+
+footer.footer {
+  background: $footer-background;
+  color: $footer-color;
+  text-align: center;
+  padding: 10px;
+  border-top: 1px dashed #e5e5e5;
+  margin-top: 40px;
+  a {
+    color: $footer-color;
+    text-decoration: underline;
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+}

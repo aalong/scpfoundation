@@ -1,0 +1,13 @@
+.prefooter
+footer.footer
+  div
+    ' &copy; scp foundation network;
+    div.clear.visible-sm
+    ==' t('.site_content').downcase
+    = link_to 'cc by-nc-sa', 'http://creativecommons.org/licenses/by-nc-sa/3.0'
+    ';
+    div.clear.visible-sm
+    ' app revision:
+    - git_tag = ENV['GIT_TAG'] || `git describe --always` || ''
+    a href="https://github.com/resure/scpfoundation/commit/#{git_tag}"
+      = git_tag
