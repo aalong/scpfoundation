@@ -1,5 +1,5 @@
 .sidebar {
-  background: #f4f4f4;
+  // background: #f4f4f4;
   margin-top: 30px;
   padding: 7px;
 
@@ -26,5 +26,64 @@
 
   button {
     @extend .toggle-button;
+  }
+
+  @media (max-width: 767px) {
+    margin-top: -8px;
+    background: $navbar-bg;
+    clear: both;
+    @include clearfix();
+  }
+
+  @media (min-width: 768px) {
+    border-right: 2px dashed #aaa;
+    padding: 0;
+    padding-right: 15px;
+    text-align: right;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .sidebar-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// 228
+
+@media (min-width: 768px) {
+  .bs-docs-sidenav {
+      // width: 258px;
+  }
+  .bs-docs-sidenav {
+      // width: 228px;
+      margin: 10px 0 0;
+      padding: 0;
+      background-color: #fff;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px;
+      -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+      -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+      box-shadow: 0 1px 4px rgba(0,0,0,.065);
+  }
+  .bs-affix {
+    position: fixed;
+    // width: 180px;
+  }
+}
+
+@media (min-width: 980px) {
+  .bs-docs-sidenav {
+      // width: 258px;
+  }
+  .bs-docs-sidenav {
+      // width: 228px;
+  }
+  .bs-affix {
+    position: fixed;
+    // width: 220px;
   }
 }
