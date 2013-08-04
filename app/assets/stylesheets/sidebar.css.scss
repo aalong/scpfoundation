@@ -1,0 +1,30 @@
+.sidebar {
+  background: #f4f4f4;
+  margin-top: 30px;
+  padding: 7px;
+
+  hr {
+    border-top: 0px dashed #ccc;
+    margin-top: 9px;
+    margin-bottom: 9px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 10px;
+  }
+
+  .nav-header {
+    @extend h4;
+    font-weight: normal;
+    margin: 8px auto 4px auto;
+  }
+
+  .sidebar-toggle {
+    text-align: center;
+  }
+
+  button {
+    @extend .toggle-button;
+  }
+}
