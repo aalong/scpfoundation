@@ -14,11 +14,10 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
-/config/database.yml
-/config/private_pub.yml
 .ruby-version
 .zeus.sock
 Procfile.local
 libpeerconnection.log
 .env
 public/assets
+config/application.yml

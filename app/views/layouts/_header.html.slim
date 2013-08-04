@@ -1,0 +1,21 @@
+div.navbar.navbar-fixed-top
+  div.container
+
+    button*{ type: 'button', class: 'navbar-toggle', 'data-toggle' => 'collapse', 'data-target' => '.navbar-responsive-collapse' }
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+
+    p.navbar-text.pull-left.navbar-notifications
+      a href='/notifications'
+        span.badge
+          span.icon-inbox
+          '
+          ' 0
+
+    a.navbar-brand href=root_url(subdomain: nil)
+      ' SCP Foundation
+
+    div.nav-collapse.collapse.navbar-responsive-collapse
+      p.navbar-text.pull-right
+        ' Administrator

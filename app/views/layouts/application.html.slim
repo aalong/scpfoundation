@@ -1,0 +1,28 @@
+doctype html
+html lang='ru'
+  head
+    meta charset='utf-8'
+    meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'
+    meta name='viewport' content='width=devise-width, initial-scale=1.0'
+    title = content_for(:title) ? yield(:title) : "SCP Foundation"
+    = csrf_meta_tags
+    == yield :head
+
+    /[ if lt IE 9 ]
+      script src='http://html5shim.googlecode.com/svn/trunk/html5.js' type='text/javascript'
+
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
+
+  body
+    = render partial: 'layouts/header'
+
+    div.row-fluid
+      div class='col-12 col-sm-3 col-lg-3'
+        = render partial: 'layouts/sidebar'
+      div class='col-12 col-sm-9 col-lg-9'
+        = render partial: 'layouts/content'
+
+    = render partial: 'layouts/footer'
+

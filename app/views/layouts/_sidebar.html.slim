@@ -1,0 +1,31 @@
+div.sidebar
+  ul
+    li.nav-header
+      = t('.navigation')
+    li = link_to t('.objects'), '/pages'
+    - if true #current_user
+      li = link_to t('.sandbox'), '/pages'
+      li = link_to t('.forum'), '/pages'
+      li = link_to t('.drafts'), '/pages'
+      - if true #current_user.staffer?
+        li = link_to t('.admin'), '/pages'
+
+    li.nav-header
+      = t('.additional')
+    li = link_to t('.experiment_logs'), '/pages'
+    li = link_to t('.incident_reports'), '/pages'
+    li = link_to t('.interviews'), '/pages'
+    li = link_to t('.other'), '/pages'
+    li = link_to t('.stories'), '/pages'
+    li = link_to t('.tags'), '/pages'
+    /* li = link_to 'Top articles', '/pages/top' */
+    /* li = link_to 'Random page', '/pages/random' */
+    li = link_to t('.faq'), '/pages'
+
+    li.nav-header
+      = t('.updates')
+    - if true #current_user
+      li = link_to t('.new_comments'), '/pages'
+      li = link_to t('.new_pages'), '/pages'
+      li = link_to t('.recent_edits'), '/pages'
+      li = link_to t('.irc_logs'), '/pages'

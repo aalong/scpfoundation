@@ -1,0 +1,56 @@
+
+$sansFontFamily: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+$serifFontFamily: Georgia, "Times New Roman", Times, serif;
+
+$font-size-base: 14px;
+$font-family-base: $sansFontFamily;
+
+$linkColor: #06a;
+$linkColorHover: #a00;
+
+$navbar-height: 31px;
+
+@import "twitter/bootstrap";
+@import "font-awesome";
+
+body {
+  padding-top: 40px;
+}
+
+// Make all images responsive by default
+img {
+  @extend .img-responsive;
+}
+
+.navbar-toggle {
+  border: none;
+}
+
+.navbar-notifications {
+  padding-right: 8px;
+  margin-top: 4px;
+}
+
+.sidebar {
+  background: #f4f4f4;
+  margin-top: 30px;
+  padding: 7px;
+
+  hr {
+    border-top: 0px dashed #ccc;
+    margin-top: 9px;
+    margin-bottom: 9px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 10px;
+  }
+
+  .nav-header {
+    @extend h4;
+    font-weight: normal;
+    margin: 8px auto 4px auto;
+  }
+}
+

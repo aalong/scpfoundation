@@ -14,7 +14,7 @@
           "dbconsole": []
         },
         "test_environment": {
-          "test_helper": {"test": ["testrb"]}
+          "test_helper": {"test": ["rspec"]}
         }
       }
     }
