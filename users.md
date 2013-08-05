@@ -1,3 +1,11 @@
+---
+
+layout: default
+title: SCPX - Users
+
+---
+
+
 User model
 ==========
 
@@ -55,7 +63,6 @@ User roles
 	* read additional user info
  * community administrator (30k)
 	* nice hat
-
 
 
 
