@@ -8,6 +8,8 @@ footer.footer
     ';
     div.clear.visible-sm
     ' app revision:
+    span.icon-github
+    '
     - git_tag = ENV['GIT_TAG'] || `git describe --always` || ''
     a href="https://github.com/resure/scpfoundation/commit/#{git_tag}"
       = git_tag
