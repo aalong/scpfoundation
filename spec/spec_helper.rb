@@ -1,7 +1,6 @@
 ENV["RAILS_ENV"] = 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 
@@ -29,10 +28,6 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do
-    DatabaseClean.start
+    DatabaseCleaner.start
   end
-
-  config.treat_symbols_as_metadata_keys_with_true_values = true
-  config.filter_run focus: :true
-  config.run_all_when_everything_filtered = true
 end
