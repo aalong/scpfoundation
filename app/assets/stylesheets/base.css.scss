@@ -21,6 +21,10 @@ body {
   padding-top: 40px;
 }
 
+.container {
+  max-width: 940px;
+}
+
 // Make all images responsive by default
 img {
   @extend .img-responsive;
