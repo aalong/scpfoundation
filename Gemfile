@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'figaro'
 gem 'russian'
 gem 'awesome_print'
-gem 'simple_form', '>= 3.0.0.rc'
+gem 'will_paginate', '~> 3.0.0'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.4'
@@ -37,3 +37,5 @@ group :development do
   gem 'meta_request'
 end
 
+gem 'devise', github: 'plataformatec/devise'
+gem 'cancan'
