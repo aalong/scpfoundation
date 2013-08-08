@@ -1,0 +1,45 @@
+development:
+  db_adapter: postgresql
+  db_encoding: unicode
+  db_database: scpx
+  pool: 5
+  username: scpfoundation
+  password: foobar
+  secret_token: foobar
+  default_host: scpfoundation.dev
+  email_enable_starttls_auto: true
+  email_address: "smtp.gmail.com"
+  email_port: 587
+  email_domain: "smtp.gmail.com"
+  email_authentication: :plain
+  email_user_name: "noreply@scpfoundation.net"
+  email_password: "foobar"
+  email_default_url: 'localhost:3000'
+
+test:
+  db_adapter: postgresql
+  db_encoding: unicode
+  db_database: scpx
+  pool: 5
+  username: scpfoundation
+  password: foobar
+  secret_token: foobar
+  default_host: scpfoundation.dev
+
+production:
+  db_adapter: postgresql
+  db_encoding: unicode
+  db_database: scpx
+  pool: 5
+  username: scpfoundation
+  password: foobar
+  secret_token: foobar
+  default_host: scpfoundation.dev
+  email_enable_starttls_auto: true
+  email_address: "smtp.gmail.com"
+  email_port: 587
+  email_domain: "smtp.gmail.com"
+  email_authentication: :plain
+  email_user_name: "noreply@scpfoundation.net"
+  email_password: "foobar"
+  email_default_url: 'localhost:3000'
