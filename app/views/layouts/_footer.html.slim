@@ -13,3 +13,8 @@ footer.footer
     - git_tag = ENV['GIT_TAG'] || `git describe --always` || ''
     a href="https://github.com/resure/scpfoundation/commit/#{git_tag}"
       = git_tag
+    ';
+    div.clear.visible-sm
+    span.icon-trello
+    '
+    a href="https://trello.com/b/yWpaCCMn/public-dev-board" Public Dev Board
