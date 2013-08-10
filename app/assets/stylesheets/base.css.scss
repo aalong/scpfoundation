@@ -19,6 +19,7 @@ $footer-color: #888;
 
 body {
   padding-top: 40px;
+  text-align: justify;
 }
 
 .container {
@@ -37,6 +38,29 @@ img {
 .navbar-notifications {
   padding-right: 8px;
   margin-top: 6px;
+}
+
+.navbar-text {
+  span.nav-link {
+    padding-right: 4px;
+  }
+}
+
+.actions-links a {
+  padding-right: 5px;
+  font-size: 85%;
+}
+
+.navbar {
+  li { list-style-type: none }
+}
+
+div.field_with_errors {
+  @extend .has-error;
+}
+
+.tab-content {
+  margin-top: 20px;
 }
 
 @import "sidebar";

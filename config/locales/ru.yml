@@ -1,4 +1,20 @@
 ru:
+  activerecord:
+    attributes:
+      user:
+        login: Логин
+        username: Ник
+        email: Email
+        password: Пароль
+        password_confirmation: Подтверждение
+        current_password: Текущий пароль
+        remember_me: Запомнить меня
+        real_name: Имя
+        about: О себе
+        timezone: Часовой пояс
+        locale: Язык
+        gender: Пол
+        birthday: День рождения
   main:
     util:
       access_denied: 'Доступ закрыт'
@@ -63,8 +79,9 @@ ru:
       cant_change_username: Вы не можете изменить имя пользователя
       cant_change_email: Вы не можете изменить адрес электронной почты
     show:
-      invited_by: "Приглашен пользователем %{user}"
       profile: Профиль
+      sign_out: Выход
+      edit: Править
     new:
       title: Регистрация
       sign_up: Создать учетную запись
@@ -78,7 +95,7 @@ ru:
     passwords:
       new:
         title: Восстановление пароля
-        send_me_reset_password: Отправить мне инструкции по восстановлению пароля
+        send_me_reset_password: Отправить инструкцию
       edit:
         change_my_password: Изменить мой пароль
         title: Восстановление пароля
@@ -86,10 +103,21 @@ ru:
       new:
         title: Регистрация
         sign_up: Создать учетную запись
+        username_hint: Латиница, цифры, -, _ и пробелы
+        password_hint: Не менее восьми символов
       edit:
         title: Редактирование профиля
         current_password: Текущий пароль
         we_need_current_password: Для сохранения изменений нужно ввести ваш текущий пароль
+        update: Сохранить
+        cant_change_username: Вы не можете изменить имя пользователя
+        profile: Профиль
+        about: Анкета
+        preferences: Настройки
+        russian: Русский
+        english: Английский
+        male: Мужчина
+        female: Женщина
     shared:
       links:
         sign_in: Вход
@@ -142,6 +170,13 @@ ru:
     show:
       back: '&larr; Назад к обсуждению'
   layouts:
+    header:
+      profile: Профиль
+      edit: Править
+      preferences: Настройки
+      sign_out: 'Выход'
+      sign_in: 'Вход'
+      navigation: 'Навигация'
     sidebar:
       jump_to: Переход
       sections: 'Разделы'

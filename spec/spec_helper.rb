@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] = 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'cancan/matchers'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 
@@ -30,4 +31,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.start
   end
+
+  config.include Devise::TestHelpers, type: :controller
 end

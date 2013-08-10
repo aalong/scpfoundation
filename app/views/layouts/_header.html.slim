@@ -17,5 +17,26 @@ div.navbar.navbar-fixed-top
       ' SCP Foundation
 
     div.nav-collapse.collapse.navbar-responsive-collapse
-      p.navbar-text.pull-right
-        ' Administrator
+      ul.nav.navbar-nav.pull-right
+        - if current_user
+          li.dropdown
+            a id='profile_drop' role='button' data-toggle='dropdown' data-target='#' href=current_user.display_name
+              =' current_user.display_name
+              span.caret
+            ul.dropdown-menu aria-labelledby='profile_drop' role='menu'
+              li role='presentation'
+                = link_to current_user, role: 'menuitem'
+                  i.icon-user &nbsp;
+                  = t('.profile')
+              li role='presentation'
+                    = link_to edit_user_registration_url(subdomain: ''), role: 'menuitem'
+                      i.icon-gear &nbsp;
+                      = t('.preferences')
+              li role='presentation' class='divider'
+              li role='presentation'
+                = link_to destroy_user_session_path, method: :delete, role: 'menuitem'
+                  i.icon-signout &nbsp;
+                  = t('.sign_out')
+        - else
+          li = link_to t('.sign_in'), new_user_session_path
+

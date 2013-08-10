@@ -1,0 +1,88 @@
+- title t('.title'), show_title = false
+
+
+= form_for(resource, url: registration_path(resource_name), method: :put, html: { class: 'form-horizontal' }) do |f|
+  legend = content_for :title
+
+  - if resource.errors.any?
+    div.alert.alert-info
+      ul
+        - resource.errors.full_messages.each do |msg|
+          li = msg
+
+  ul.nav.nav-tabs#profileTab
+    li.active
+      a href='#profile' data-toggle='tab' = t('.profile')
+    li
+      a href='#about' data-toggle='tab' = t('.about')
+    li
+      a href='#preferences' data-toggle='tab' = t('.preferences')
+
+  .tab-content
+    .tab-pane.active#profile
+      .form-group
+        = f.label :username, class: 'col-lg-3 control-label'
+        .col-lg-9
+          input class='form-control' value=resource.username disabled =true
+
+      .form-group
+        = f.label :email, class: 'col-lg-3 control-label'
+        .col-lg-9
+          input class='form-control' value=resource.email disabled =true
+
+      .form-group
+        = f.label :password, class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.password_field :password, class: 'form-control'
+
+      .form-group
+        = f.label :password_confirmation, class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.password_field :password_confirmation, class: 'form-control'
+
+    .tab-pane#about
+      .form-group
+        = f.label :real_name, class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_field :real_name, class: 'form-control'
+
+      .form-group
+        = f.label :about, class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.text_area :about, class: 'form-control'
+
+      .form-group
+        = f.label :birthday, class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.date_field :birthday, { class: 'form-control', value: resource.birthdate }
+
+      .form-group
+        = f.label :gender, class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.select :gender, options_for_select([[t('.male'), 'male'], [t('.female'), 'female']], selected: resource.gender), {}, { class: 'form-control' }
+
+    .tab-pane#preferences
+      .form-group
+        = f.label :timezone, class: 'col-lg-3 control-label'
+        .col-lg-9
+          - main_zones = [ ActiveSupport::TimeZone['Moscow'], ActiveSupport::TimeZone['Novosibirsk'], ActiveSupport::TimeZone['Kyiv'], ActiveSupport::TimeZone['Minsk']]
+          = f.time_zone_select :timezone, main_zones, {}, { class: 'form-control' }
+
+      .form-group
+        = f.label :locale, class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.select :locale, options_for_select([[t('.russian'), 'ru'], [t('.english'), 'en']], selected: resource.locale),  {}, { class: 'form-control' }
+
+  hr
+
+  .form-group
+    = f.label :current_password, class: 'col-lg-3 control-label'
+    .col-lg-9
+      = f.password_field :current_password, class: 'form-control'
+      span.help-block
+        = t('.we_need_current_password')
+
+  .form-group
+    .col-lg-3
+    .col-lg-9
+      = f.submit t('.update'), class: 'btn btn-primary'

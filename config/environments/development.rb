@@ -37,4 +37,6 @@ SCPX::Application.configure do
     password:             ENV['email_password'],
     authentication:       ENV['email_authentication'],
     enable_starttls_auto: ENV['email_enable_starttls_auto'] }
+
+  config.action_mailer.default_url_options = { host: ENV['email_default_url'] }
 end

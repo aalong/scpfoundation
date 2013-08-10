@@ -1,0 +1,38 @@
+- title t('.title'), show_title = false
+
+= form_for(resource, url: registration_path(resource_name)) do |f|
+  legend = content_for :title
+
+  - if resource.errors.any?
+    div.alert.alert-info
+      ul
+        - resource.errors.full_messages.each do |msg|
+          li = msg
+
+  fieldset
+    .form-group
+      = f.label :username
+      = f.text_field :username, autofocus: true, class: 'form-control'
+      span.help-block
+        = t('.username_hint')
+
+    .form-group
+      = f.label :email
+      = f.email_field :email, class: 'form-control'
+
+    .form-group
+      = f.label :password
+      = f.password_field :password, class: 'form-control'
+      span.help-block
+        = t('.password_hint')
+
+    .form-group
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, class: 'form-control'
+
+    .actions
+      = f.submit t('.sign_up'), class: 'btn-primary form-control'
+
+hr
+
+== render partial: "users/shared/links"
