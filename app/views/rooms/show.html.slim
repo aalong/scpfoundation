@@ -1,0 +1,22 @@
+- title @room.title, show=false
+
+.container
+  div class='col-0 col-sm-1 col-lg-2'
+  div class='col-12 col-sm-10 col-lg-8'
+    .messages
+      - @messages.each do |msg|
+        .message
+          strong = msg.user.display_name
+          ':
+          = msg.content
+  div class='col-0 col-sm-1 col-lg-2'
+
+.type-zone
+  div class='col-0 col-sm-2 col-lg-2'
+  div class='col-12 col-sm-8 col-lg-8'
+    = form_for @room.messages.new, url: room_messages_path(@room) do |f|
+      .col-12.col-sm-10.col-lg-10
+        = f.text_area :content, class: 'form-control', autofocus: true
+      .col-12.col-sm-2.col-lg-2
+        = f.submit 'Send', class: 'btn btn-mini btn-primary'
+  div class='col-0 col-sm-1 col-lg-2'

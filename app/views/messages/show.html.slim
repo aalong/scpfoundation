@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Content:
+  = @message.content
+p
+  strong Type:
+  = @message.type
+p
+  strong User:
+  = @message.user_id
+p
+  strong Room:
+  = @message.room_id
+
+= link_to 'Edit', edit_message_path(@message)
+'|
+= link_to 'Back', messages_path

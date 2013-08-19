@@ -1,0 +1,20 @@
+= form_for @message do |f|
+  - if @message.errors.any?
+    div.alert.alert-info
+      ul
+        - @message.errors.full_messages.each do |msg|
+          li = msg
+
+  .form-group
+    = f.label :content
+    = f.text_area :content, class:'form-control'
+  .form-group
+    = f.label :type
+    = f.text_field :type, class:'form-control'
+  .form-group
+    = f.label :user_id
+    = f.number_field :user_id, class:'form-control'
+  .form-group
+    = f.label :room_id
+    = f.number_field :room_id, class:'form-control'
+  .actions = f.submit 'Save', class: 'btn-primary form-control'

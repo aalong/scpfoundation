@@ -43,12 +43,112 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: messages; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE messages (
+    id integer NOT NULL,
+    content text,
+    message_type character varying(255),
+    user_id integer,
+    room_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: messages_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE messages_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE messages_id_seq OWNED BY messages.id;
+
+
+--
+-- Name: rooms; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE rooms (
+    id integer NOT NULL,
+    title character varying(255),
+    description character varying(255),
+    topic character varying(255),
+    access character varying(255),
+    user_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: rooms_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE rooms_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: rooms_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE rooms_id_seq OWNED BY rooms.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE schema_migrations (
     version character varying(255) NOT NULL
 );
+
+
+--
+-- Name: sharings; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE sharings (
+    id integer NOT NULL,
+    shareable_id integer,
+    shareable_type character varying(255),
+    user_id integer
+);
+
+
+--
+-- Name: sharings_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE sharings_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sharings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE sharings_id_seq OWNED BY sharings.id;
 
 
 --
@@ -100,7 +200,52 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY messages ALTER COLUMN id SET DEFAULT nextval('messages_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY rooms ALTER COLUMN id SET DEFAULT nextval('rooms_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sharings ALTER COLUMN id SET DEFAULT nextval('sharings_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: messages_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY messages
+    ADD CONSTRAINT messages_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rooms_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY rooms
+    ADD CONSTRAINT rooms_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sharings_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY sharings
+    ADD CONSTRAINT sharings_pkey PRIMARY KEY (id);
 
 
 --
@@ -109,6 +254,13 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_sharings_on_shareable_id_and_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_sharings_on_shareable_id_and_user_id ON sharings USING btree (shareable_id, user_id);
 
 
 --
@@ -153,3 +305,9 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 SET search_path TO "$user",public;
 
 INSERT INTO schema_migrations (version) VALUES ('20130804141159');
+
+INSERT INTO schema_migrations (version) VALUES ('20130811081826');
+
+INSERT INTO schema_migrations (version) VALUES ('20130811111516');
+
+INSERT INTO schema_migrations (version) VALUES ('20130811153454');

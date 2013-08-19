@@ -1,10 +1,13 @@
-= simple_form_for(@<%= singular_table_name %>) do |f|
-  = f.error_notification
+= form_for @<%= singular_table_name %> do |f|
+  - if @<%= singular_table_name %>.errors.any?
+    div.alert.alert-info
+      ul
+        - @<%= singular_table_name %>.errors.full_messages.each do |msg|
+          li = msg
 
-  .form-inputs
-<%- attributes.each do |attribute| -%>
-    = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
-<%- end -%>
-
-  .form-actions
-    = f.button :submit
+<% attributes.each do |attribute| -%>
+  .form-group
+    = f.label :<%= attribute.name %>
+    = f.<%= attribute.field_type %> :<%= attribute.name %>, class:'form-control'
+<% end -%>
+  .actions = f.submit 'Save', class: 'btn-primary form-control'

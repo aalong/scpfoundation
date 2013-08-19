@@ -1,5 +1,8 @@
 SCPX::Application.routes.draw do
 
+  resources :rooms do
+    resources :messages
+  end
   resources :users, only: [:show, :edit, :update]
 
   devise_for :users, {

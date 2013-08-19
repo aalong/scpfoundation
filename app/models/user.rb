@@ -7,11 +7,14 @@ class User < ActiveRecord::Base
 
   include Roleable
 
+  has_many :rooms
+  has_many :messages
+
   attr_accessor :login
   store_accessor :properties, HSTORE_PROPERTIES
 
   before_save :reset_authentication_token
-  before_validation :prepare_username
+  before_validation :prepare_username, if: :new_record?
   after_initialize :load_defaults
 
   validates :username, uniqueness: { case_sensitive: false }, format: /\A[\w\_\-\d]+\Z/,  length: { within: 3..30 }

@@ -1,4 +1,10 @@
 ru:
+  # Globals
+  save: Сохранить
+  private: Приватный
+  community: Сообщество
+  public: Публичный
+  back: Назад
   activerecord:
     attributes:
       user:
@@ -15,6 +21,12 @@ ru:
         locale: Язык
         gender: Пол
         birthday: День рождения
+      room:
+        title: Название
+        description: Описание
+        topic: Тема
+        access: Доступ
+        users: Участники
   users:
     show:
       profile: Профиль
@@ -85,3 +97,10 @@ ru:
       new_pages: 'Новые статьи'
       recent_edits: 'Правки'
       irc_logs: 'IRC-логи'
+  rooms:
+    index:
+      title: Комнаты
+    new:
+      title: Создание комнаты
+    edit:
+      title: Настройки комнаты

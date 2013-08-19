@@ -1,0 +1,6 @@
+class Room < ActiveRecord::Base
+  include Shareable
+
+  belongs_to :user
+  has_many :messages
+end

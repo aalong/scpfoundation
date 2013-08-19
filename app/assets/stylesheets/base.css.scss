@@ -22,6 +22,10 @@ body {
   text-align: justify;
 }
 
+table {
+  @extend .table;
+}
+
 .container {
   max-width: 940px;
 }
@@ -61,6 +65,29 @@ div.field_with_errors {
 
 .tab-content {
   margin-top: 20px;
+}
+
+.messages {
+  margin-bottom: 100px;
+}
+
+.type-zone {
+  z-index: 100;
+  position: fixed;
+  bottom: 0px;
+  border-top: dashed 1px #eee;
+  background: #f0f0f0;
+  width: 100%;
+  background: #eeeeee;
+  padding: 5px;
+
+  form {
+    .form-control { margin-bottom: 5px; }
+  }
+}
+
+#messages_container {
+  padding-bottom: 20px;
 }
 
 @import "sidebar";
