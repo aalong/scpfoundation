@@ -8,8 +8,8 @@ Bundler.require(:default, Rails.env)
 
 module SCPX
   class Application < Rails::Application
-    TIMEZONE  = ENV['default_timezone']
-    LOCALE    = ENV['default_locale']
+    TIMEZONE  = ENV['default_timezone'] || 'UTC'
+    LOCALE    = ENV['default_locale']   || 'en'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
