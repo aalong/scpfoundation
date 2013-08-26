@@ -1,10 +1,15 @@
 require 'spec_helper'
 
 describe "Messages" do
+  before(:each) do
+    @user = Fabricate(:user)
+    @room = Fabricate(:room)
+    sign_in @user
+  end
+
   describe "GET /messages" do
     it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get messages_path
+      visit room_messages_path(@room)
       response.status.should be(200)
     end
   end
