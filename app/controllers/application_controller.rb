@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
   def extract_locale
     if request.env['HTTP_ACCEPT_LANGUAGE']
-      request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[en|tr]{2}/).first
+      request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[en|ru]{2}/).first
     else
       I18n.default_locale
     end
