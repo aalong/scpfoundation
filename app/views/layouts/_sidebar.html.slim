@@ -1,9 +1,9 @@
 div.sidebar.bs-docs-sidebar.bs-affix
-  ul
-    div.sidebar-toggle.visible-sm
-      button*{ type: 'button', 'data-toggle' => 'collapse', 'data-target' => '.sidebar-responsive-collapse' }
-        = t('.navigation')
-    div.nav-collapse.collapse.sidebar-responsive-collapse
+  div.sidebar-toggle.visible-xs
+    button*{ type: 'button', 'data-toggle' => 'sidebar-collapse', 'data-target' => '.sidebar-responsive-collapse' }
+      = t('.navigation')
+  div#sidebar-content.hidden-xs
+    ul
       li.nav-header
         = t('.jump_to')
       li = link_to t('.objects'), '/pages'
@@ -33,4 +33,3 @@ div.sidebar.bs-docs-sidebar.bs-affix
         li = link_to t('.new_pages'), '/pages'
         li = link_to t('.recent_edits'), '/pages'
         li = link_to t('.irc_logs'), '/pages'
-

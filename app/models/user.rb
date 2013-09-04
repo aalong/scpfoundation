@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
   attr_accessor :login
   store_accessor :properties, HSTORE_PROPERTIES
 
-  before_save :reset_authentication_token
   before_validation :prepare_username, if: :new_record?
   after_initialize :load_defaults
 

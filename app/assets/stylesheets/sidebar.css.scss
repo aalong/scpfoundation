@@ -30,7 +30,7 @@
 
   @media (max-width: 767px) {
     margin-top: -8px;
-    background: $navbar-bg;
+    background: $navbar-default-bg;
     clear: both;
     @include clearfix();
   }

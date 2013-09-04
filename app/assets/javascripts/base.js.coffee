@@ -4,5 +4,11 @@ resize_logs = ->
   if messagesDiv != null
     messagesDiv.scrollTop = messagesDiv.scrollHeight
 
+toggle_sidebar = ->
+  $('*[data-toggle="sidebar-collapse"]').click
+
+$(document).on 'click', '*[data-toggle="sidebar-collapse"]', ->
+  $('#sidebar-content').toggleClass 'hidden-xs'
+
 $(document).ready(resize_logs)
 $(document).on('page:load', resize_logs)

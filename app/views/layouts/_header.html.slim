@@ -1,23 +1,24 @@
-div.navbar.navbar-fixed-top
+div.navbar.navbar-fixed-top.navbar-default
   div.container
 
-    button*{ type: 'button', class: 'navbar-toggle', 'data-toggle' => 'collapse', 'data-target' => '.navbar-responsive-collapse' }
-      span.icon-bar
-      span.icon-bar
-      span.icon-bar
+    div.navbar-header
+      button*{ type: 'button', class: 'navbar-toggle', 'data-toggle' => 'collapse', 'data-target' => '.navbar-ex1-collapse' }
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
 
-    p.navbar-text.pull-left.navbar-notifications
-      a href='/notifications'
-        span.badge
-          span.icon-inbox
-          '
-          ' 0
+      p.navbar-text.navbar-notifications
+        a href='/notifications'
+          span.badge
+            span.icon-inbox
+            '
+            ' 0
 
-    a.navbar-brand href=root_url(subdomain: nil)
-      ' SCP Foundation
+      a.navbar-brand href=root_url(subdomain: nil)
+        ' SCP Foundation
 
-    div.nav-collapse.collapse.navbar-responsive-collapse
-      ul.nav.navbar-nav.pull-right
+    div.collapse.navbar-collapse.navbar-ex1-collapse
+      ul.nav.navbar-nav.navbar-right
         - if current_user
           li.dropdown
             a id='profile_drop' role='button' data-toggle='dropdown' data-target='#' href=current_user.display_name
