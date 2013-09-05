@@ -48,9 +48,9 @@ describe User do
     user3.should_not be_valid
   end
 
-  it 'should generate authentication token after create' do
-    Fabricate(:user).authentication_token.should_not be_blank
-  end
+  # it 'should generate authentication token after create' do
+  #   Fabricate(:user).authentication_token.should_not be_blank
+  # end
 
   describe 'roleable' do
     let(:user) { Fabricate(:user) }
