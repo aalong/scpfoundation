@@ -16,6 +16,8 @@ $footer-color: #888;
 @import "twitter/bootstrap";
 @import "font-awesome";
 @import "mixins";
+@import "flags";
+@import "wmd";
 
 body {
   padding-top: 40px;
@@ -139,7 +141,10 @@ div.field_with_errors {
   margin-top: 15px;
 }
 
+textarea.wmd-input {
+  min-height: 300px;
+}
+
 @import "sidebar";
 @import "footer";
-@import "flags";
 @import "fixes";
