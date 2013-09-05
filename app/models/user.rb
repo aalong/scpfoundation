@@ -2,8 +2,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  HSTORE_PROPERTIES = [ :real_name, :about, :birthday, :gender, :timezone, :locale ]
-  PROPERTIES        = [:password, :password_confirmation, :current_password] + HSTORE_PROPERTIES
+  PROTECTED_PROPERTIES  = [ :status, :status_level ]
+  PLAIN_PROPERTIES      = [ :real_name, :about, :birthday, :gender, :country, :timezone, :locale ]
+  HSTORE_PROPERTIES     = PLAIN_PROPERTIES + PROTECTED_PROPERTIES
+  PROPERTIES            = [ :password, :password_confirmation, :current_password ] + HSTORE_PROPERTIES
 
   include Roleable
 
@@ -20,6 +22,10 @@ class User < ActiveRecord::Base
   validates :locale, inclusion: { in: %w(ru en) }, allow_blank: true
   validates :timezone, inclusion: { in: ActiveSupport::TimeZone.zones_map(&:name) }, allow_blank: true
   validates :birthday, format: { with: /\A\d\d\d\d-\d\d-\d\d\z/ }, allow_blank: true
+  validates :gender, inclusion: { in: %w(male female unknown) }
+  validates :country, inclusion: { in: Country.all.map { |c| c[1] } }, allow_blank: true
+  validates :status, length: { maximum: 30 }
+  validates :status_level, numericality: { only_integer: true, greater_than: 0, less_than: 9 }, allow_blank: true
 
   def to_param
     username
@@ -66,6 +72,6 @@ class User < ActiveRecord::Base
   def load_defaults
     self.timezone = SCPX::Application::TIMEZONE if self.timezone.blank?
     self.locale   = SCPX::Application::LOCALE   if self.locale.blank?
-    self.gender   = 'male'                      if self.gender.blank?
+    self.gender   = 'unknown'                   if self.gender.blank?
   end
 end

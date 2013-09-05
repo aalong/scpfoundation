@@ -1,1 +1,95 @@
-- title "#{t('.profile')} #{@user.display_name}"
+- title "#{t('.profile')} #{@user.display_name}", show_title = false
+
+div#user_profile.row
+  div.col-12.col-sm-2.col-lg-2.avatar
+    img src=avatar_url(@user)
+  div.col-12.col-sm-6.col-lg-6
+    h3
+      = @user.display_name
+      - unless @user.country.blank?
+        img src="/assets/blank.gif" class="flag flag-#{@user.country.downcase}"
+    - if @user.admin?
+      p = "#{t('.administrator')} ♦"
+    - elsif @user.moderator?
+      p = "#{t('.moderator')} ♦"
+    p
+      - unless @user.real_name.blank?
+        strong
+          = t('.name')
+          ':
+        span = @user.real_name
+      br
+      /* - unless @user.country.blank? */
+      /*   strong */
+      /*     = t('.country') */
+      /*     ': */
+      /*   span = @user.country */
+    div.about-block = markdown @user.about
+  div.col-12.col-sm-4.col-lg-4
+    - unless @user.status.blank?
+      em*{ class: (@user.status_level.blank? ? '' : "s#{@user.status_level}") } = @user.status
+    br
+    span
+      =' t('.member_since')
+    span = l @user.created_at.to_date
+    br
+    span
+      = link_to '/pages'
+        span.icon-inbox
+        ' 
+        = t('.send_message')
+    - if current_user && current_user.member?
+      br
+      span
+        = link_to '/pages'
+          span.icon-eye-open
+          '
+          = t('.flag')
+    - if current_user && current_user.moderator?
+      hr
+      span
+        = link_to '/pages'
+          span.icon-warning-sign
+          '
+          = t('.warnings')
+      br
+      span
+        = link_to '/pages'
+          span.icon-screenshot
+          '
+          = t('.block')
+    - if current_user && current_user.admin?
+      br
+      span
+        = link_to '/pages'
+          span.icon-edit
+          '
+          = t('.edit')
+
+- if current_user
+  div#user_activity.row
+    h4 = t('.user_activity')
+    
+  ul.nav.nav-tabs#profileTab
+    li.active
+      a href="#comments" data-toggle='tab' = t('.comments')
+    li
+      a href="#pages" data-toggle='tab' = t('.pages')
+    li
+      a href="#edits" data-toggle='tab' = t('.edits')
+    li
+      a href="#messages" data-toggle='tab' = t('.messages')
+    li
+      a href="#votes" data-toggle='tab' = t('.votes')
+  
+  .tab-content
+    .tab-pane.active#comments
+      = t('.nothing_here')
+    .tab-pane#pages
+      = t('.nothing_here')
+    .tab-pane#edits
+      = t('.nothing_here')
+    .tab-pane#messages
+      = t('.nothing_here')
+    .tab-pane#votes
+      = t('.nothing_here')

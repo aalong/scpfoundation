@@ -101,10 +101,45 @@ div.field_with_errors {
   padding-bottom: 20px;
 }
 
-.no-border {
-  border: none
+.about-block {
+  padding: 5px;
+  border: 1px dashed #e7e7e7;
+}
+
+#header_placeholder {
+  clear: both;
+  @include clearfix();
+  height: 42px;
+}
+
+#user_profile {
+  text-align: left;
+
+  h3 {
+    margin-top: 0;
+    padding-top: 0;
+    display: inline;
+    font-size: 16px;
+    img { display: inline; margin-left: 5px; }
+  }
+
+  .avatar {
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+
+  .s1 { color: #777777; }
+  .s2 { color: #80a1b7; }
+  .s3 { color: #d32ce6; }
+  .s4 { color: #e4ae33; }
+  .s5 { color: #ade55c; }
+}
+
+#user_activity {
+  margin-top: 15px;
 }
 
 @import "sidebar";
 @import "footer";
+@import "flags";
 @import "fixes";

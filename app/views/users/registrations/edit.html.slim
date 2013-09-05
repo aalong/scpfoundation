@@ -47,6 +47,11 @@
           = f.text_field :real_name, class: 'form-control'
 
       .form-group
+        = f.label :country, class: 'col-lg-3 control-label'
+        .col-lg-9
+          = f.select :country, options_for_select(Country.all, selected: resource.country), {}, { class: 'form-control' }
+
+      .form-group
         = f.label :about, class: 'col-lg-3 control-label'
         .col-lg-9
           = f.text_area :about, class: 'form-control'
@@ -59,7 +64,7 @@
       .form-group
         = f.label :gender, class: 'col-lg-3 control-label'
         .col-lg-9
-          = f.select :gender, options_for_select([[t('.male'), 'male'], [t('.female'), 'female']], selected: resource.gender), {}, { class: 'form-control' }
+          = f.select :gender, options_for_select([[t('.male'), 'male'], [t('.female'), 'female'], [t('.unknown'), 'unknown']], selected: resource.gender), {}, { class: 'form-control' }
 
     .tab-pane#preferences
       .form-group
@@ -86,3 +91,5 @@
     .col-lg-3
     .col-lg-9
       = f.submit t('.update'), class: 'btn btn-primary'
+      = link_to t('.back'), @user, class: 'btn btn-default no-border link-button'
+

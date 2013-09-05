@@ -40,3 +40,7 @@ end
 gem 'devise', github: 'plataformatec/devise'
 gem 'cancan'
 gem 'private_pub'
+gem 'countries'
+gem 'country_select'
+gem 'redcarpet'
+gem 'differ'

@@ -21,6 +21,7 @@ ru:
         locale: Язык
         gender: Пол
         birthday: День рождения
+        country: Страна
       room:
         title: Название
         description: Описание
@@ -32,6 +33,22 @@ ru:
       profile: Профиль
       sign_out: Выход
       edit: Править
+      member_since: Участник с
+      name: Имя
+      administrator: Администратор
+      moderator: Модератор
+      send_message: Отправить сообщение
+      flag: Сообщить модератору
+      warnings: Предупреждения
+      block: Заблокировать
+      edit: Редактировать
+      user_activity: Активность пользователя
+      comments: Комментарии
+      edits: Правки
+      pages: Страницы
+      messages: Сообщения
+      votes: Голоса
+      nothing_here: Пока здесь ничего нет
     sessions:
       new:
         sign_in: 'Вход'
@@ -62,6 +79,8 @@ ru:
         english: Английский
         male: Мужчина
         female: Женщина
+        unknown: Не указан
+        back: Назад к профилю
     shared:
       links:
         sign_in: Вход
@@ -110,3 +129,4 @@ ru:
       room_list: Список комнат
       participants: Участники
       send: Отправить
+      room_properties: Настройки комнаты

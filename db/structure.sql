@@ -167,7 +167,6 @@ CREATE TABLE users (
     last_sign_in_at timestamp without time zone,
     current_sign_in_ip character varying(255),
     last_sign_in_ip character varying(255),
-    authentication_token character varying(255),
     username character varying(255) NOT NULL,
     display_name character varying(255) NOT NULL,
     reputation integer DEFAULT 1 NOT NULL,
@@ -261,13 +260,6 @@ ALTER TABLE ONLY users
 --
 
 CREATE INDEX index_sharings_on_shareable_id_and_user_id ON sharings USING btree (shareable_id, user_id);
-
-
---
--- Name: index_users_on_authentication_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE UNIQUE INDEX index_users_on_authentication_token ON users USING btree (authentication_token);
 
 
 --

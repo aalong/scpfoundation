@@ -32,7 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       ## Token authenticatable
-      t.string :authentication_token
+      # t.string :authentication_token
 
       ## Custom fields
       t.string :username, :null => false
@@ -47,7 +47,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
     add_index :users, :reset_password_token, :unique => true
     # add_index :users, :confirmation_token,   :unique => true
     # add_index :users, :unlock_token,         :unique => true
-    add_index :users, :authentication_token, :unique => true
+    # add_index :users, :authentication_token, :unique => true
     add_index :users, :username, :unique => true
   end
 end

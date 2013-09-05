@@ -12,7 +12,7 @@ div.sidebar.bs-docs-sidebar.bs-affix
         li = link_to t('.forum'), '/pages'
         li = link_to t('.drafts'), '/pages'
         li = link_to t('.messages'), rooms_path
-        - if true #current_user.staffer?
+        - if current_user && current_user.staff?
           li = link_to t('.admin'), '/pages'
 
       li.nav-header

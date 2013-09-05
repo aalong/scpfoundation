@@ -10,6 +10,15 @@ module ApplicationHelper
     flash_messages.join("\n").html_safe
   end
 
+  def markdown text
+    MarkdownParser.new(text).to_html.html_safe
+  end
+
+  def avatar_url(user, size=100)
+    gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+    "//gravatar.com/avatar/#{gravatar_id}.png?size=#{size}"
+  end
+
   def title(page_title, show_title = true)
     content_for(:title) { h(page_title.to_s) }
     @show_title = show_title

@@ -4,6 +4,7 @@
 - content_for :sidebar
   li = link_to "&larr;&nbsp;#{t('.room_list')}".html_safe, rooms_path
   li == "#{t('.participants')}: #{@room.users.map{|u| link_to(u.display_name, u) }.join(', ')}"
+  li = link_to t('.room_properties'), edit_room_path(@room)
 
 .container
   #messages_container
