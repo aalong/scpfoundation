@@ -1,20 +1,21 @@
-.prefooter
-footer.footer
-  div
-    ' &copy; scp foundation network;
-    div.clear.visible-xs
-    ==' t('.site_content').downcase
-    = link_to 'cc by-nc-sa', 'http://creativecommons.org/licenses/by-nc-sa/3.0'
-    ';
-    div.clear.visible-xs
-    ' app revision:
-    span.icon-github
-    '
-    - git_tag = ENV['GIT_TAG'] || `git describe --always` || ''
-    a href="https://github.com/resure/scpfoundation/commit/#{git_tag}"
-      = git_tag.strip
-    ';
-    div.clear.visible-xs
-    span.icon-trello
-    '
-    a href="https://trello.com/b/yWpaCCMn/public-dev-board" Public Dev Board
+- if show_footer?
+  .prefooter
+  footer.footer
+    div
+      ' &copy; scp foundation network;
+      div.clear.visible-xs
+      ==' t('.site_content').downcase
+      = link_to 'cc by-nc-sa', 'http://creativecommons.org/licenses/by-nc-sa/3.0'
+      ';
+      div.clear.visible-xs
+      ' app revision:
+      span.icon-github
+      '
+      - git_tag = ENV['GIT_TAG'] || `git describe --always` || ''
+      a href="https://github.com/resure/scpfoundation/commit/#{git_tag}"
+        = git_tag.strip
+      ';
+      div.clear.visible-xs
+      span.icon-trello
+      '
+      a href="https://trello.com/b/yWpaCCMn/public-dev-board" Public Dev Board

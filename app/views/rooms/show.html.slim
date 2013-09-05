@@ -1,24 +1,23 @@
 - title @room.title, show=false
+- footer '', show_footer = false
+- content_for :sidebar, @room.title
+- content_for :sidebar
+  li = link_to "&larr;&nbsp;#{t('.room_list')}".html_safe, rooms_path
+  li == "#{t('.participants')}: #{@room.users.map{|u| link_to(u.display_name, u) }.join(', ')}"
 
 .container
-  div class='col-0 col-sm-1 col-lg-2'
-  div class='col-12 col-sm-10 col-lg-8'
-    .messages
-      - @messages.each do |msg|
-        .message
-          strong = msg.user.display_name
-          ':
-          = msg.content
-  div class='col-0 col-sm-1 col-lg-2'
+  #messages_container
+    - @messages.each do |msg|
+      = render msg
 
 .type-zone
-  div class='col-0 col-sm-2 col-lg-2'
-  div class='col-12 col-sm-8 col-lg-8'
-    = form_for @room.messages.new, url: room_messages_path(@room) do |f|
+  div class='col-2 col-sm-1 col-lg-2'
+  div class='col-10 col-sm-10 col-lg-8'
+    = form_for @room.messages.new, url: room_messages_path(@room), remote: true do |f|
       .col-12.col-sm-10.col-lg-10
-        = f.text_area :content, class: 'form-control', autofocus: true
+        = f.text_area :content, class: 'form-control', autofocus: true, rows: 1
       .col-12.col-sm-2.col-lg-2
-        = f.submit 'Send', class: 'btn btn-mini btn-primary'
+        = f.submit t('.send'), class: 'btn btn-mini btn-default', id: 'send_message_button'
   div class='col-0 col-sm-1 col-lg-2'
 
 = subscribe_to "/rooms/#{@room.id}/messages/new"

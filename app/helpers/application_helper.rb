@@ -19,6 +19,19 @@ module ApplicationHelper
     @show_title
   end
 
+  def footer(footer_text, show_footer = true)
+    content_for(:footer) { h(footer_text.to_s) }
+    @show_footer = show_footer
+  end
+
+  def show_footer?
+    if @show_footer.nil?
+      true
+    else
+      @show_footer
+    end
+  end
+
   def stylesheet(*args)
     content_for(:head) { stylesheet_link_tag(*args) }
   end

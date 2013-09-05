@@ -1,6 +1,7 @@
 .sidebar {
-  // background: #f4f4f4;
+  background: #f8f8f8;
   margin-top: 30px;
+  margin-bottom: 7px;
   padding: 7px;
 
   hr {
@@ -36,10 +37,11 @@
   }
 
   @media (min-width: 768px) {
-    border-right: 2px dashed #aaa;
+    // border-right: 2px dashed #aaa;
+    border-right: 1px dashed #e7e7e7;
     padding: 0;
     padding-right: 15px;
-    text-align: right;
+    text-align: left;
   }
 }
 

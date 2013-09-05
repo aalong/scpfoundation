@@ -1,3 +1,6 @@
 = bootstrap_flash
-= content_tag :h2, yield(:title), id: 'page-title', class: 'page-header' if show_title?
+- if show_title?
+  = content_tag :h2, yield(:title), id: 'page-title', class: 'page-header'
+- else
+  h2#page-title.page-header.no-border.hidden-xs
 = yield

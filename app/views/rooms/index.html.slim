@@ -1,21 +1,18 @@
 - title t('.title'), show=false
 
 .container
-  .col-0.col-sm-1.col-lg-2
-  .col-12.col-sm-10.col-lg-8
-    table
+  table
+    tr
+      th = t('activerecord.attributes.room.title')
+      th = t('activerecord.attributes.room.description')
+      th = t('activerecord.attributes.room.topic')
+
+    - @rooms.each do |room|
       tr
-        th Title
-        th Description
-        th Topic
+        td = link_to room.title, room
+        td = truncate(room.description)
+        td = room.topic
 
-      - @rooms.each do |room|
-        tr
-          td = link_to room.title, room
-          td = truncate(room.description)
-          td = room.topic
+  br
 
-    br
-
-    = link_to 'New Room', new_room_path
-  .col-0.col-sm-2.col-lg-2
+  = link_to t('.new_room'), new_room_path, class: 'btn btn-default'

@@ -31,6 +31,9 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        PrivatePub.publish_to "/rooms/#{@room.id}/messages/new",
+          render_to_string("messages/update_messages.js.erb", layout: false)
+
         format.html { redirect_to @room, notice: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: @message }
       else

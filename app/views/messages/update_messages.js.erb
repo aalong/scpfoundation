@@ -1,0 +1,5 @@
+$(".message:last").after("<%= j render @message %>");
+var m = $("#messages_container");
+
+if ($("#messages_container").height() - $('body').scrollTop() < 700)
+  $('body').scrollTop($(document).height());

@@ -96,11 +96,17 @@ ru:
       new_comments: 'Комментарии'
       new_pages: 'Новые статьи'
       recent_edits: 'Правки'
+      messages: 'Сообщения'
       irc_logs: 'IRC-логи'
   rooms:
     index:
       title: Комнаты
+      new_room: Новая комната
     new:
       title: Создание комнаты
     edit:
       title: Настройки комнаты
+    show:
+      room_list: Список комнат
+      participants: Участники
+      send: Отправить

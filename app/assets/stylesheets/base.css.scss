@@ -1,5 +1,5 @@
 
-$sans-font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+$sans-font-family: Verdana, Tahoma, "Lucida Grande", Arial, sans-serif;
 $serif-font-family: Georgia, "Times New Roman", Times, serif;
 
 $font-size-base: 14px;
@@ -28,6 +28,12 @@ table {
 
 .container {
   max-width: 940px;
+}
+
+@media (min-width: 768px) {
+  .content-container {
+    padding-left: 30px;
+  }
 }
 
 // Make all images responsive by default
@@ -67,19 +73,24 @@ div.field_with_errors {
   margin-top: 20px;
 }
 
-.messages {
+#messages_container {
   margin-bottom: 100px;
+  text-align: left;
 }
 
 .type-zone {
   z-index: 100;
   position: fixed;
   bottom: 0px;
-  border-top: dashed 1px #eee;
-  background: #f0f0f0;
+  left: 0px;
   width: 100%;
+  border-top: dashed 1px #eee;
   background: #eeeeee;
   padding: 5px;
+
+  @media (max-width: 767px) {
+    left: 0px;
+  }
 
   form {
     .form-control { margin-bottom: 5px; }
@@ -88,6 +99,10 @@ div.field_with_errors {
 
 #messages_container {
   padding-bottom: 20px;
+}
+
+.no-border {
+  border: none
 }
 
 @import "sidebar";
