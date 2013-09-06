@@ -41,3 +41,4 @@ end
 
 gem 'devise', github: 'plataformatec/devise'
 gem 'cancan'
+gem 'private_pub'

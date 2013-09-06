@@ -20,3 +20,5 @@
       .col-12.col-sm-2.col-lg-2
         = f.submit 'Send', class: 'btn btn-mini btn-primary'
   div class='col-0 col-sm-1 col-lg-2'
+
+= subscribe_to "/rooms/#{@room.id}/messages/new"
