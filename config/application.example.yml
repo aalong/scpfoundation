@@ -1,11 +1,12 @@
 development:
+  db_username: resure
+  db_database: scpx
   db_adapter: postgresql
   db_encoding: unicode
-  db_database: scpx
   pool: 5
   username: scpfoundation
   password: foobar
-  secret_token: foobar
+  secret_token: 13ed1fb95f744c578e380dcb1a85badd86d391bb14a7bd693a8b7c4e37886ce77e8dfa1604a20ceca96a4a6f87a8b814e07247158c55b762f45bfafb0a9a83ae
   default_host: scpfoundation.dev
   email_enable_starttls_auto: true
   email_address: "smtp.gmail.com"
@@ -14,26 +15,38 @@ development:
   email_authentication: :plain
   email_user_name: "noreply@scpfoundation.net"
   email_password: "foobar"
-  email_default_url: 'localhost:3000'
+  email_default_url: 'scpfoundation.dev'
+  default_timezone: 'Moscow'
+  default_locale: 'ru'
+  faye_server: 'http://localhost:9292/faye'
+  faye_token: 'secretissosecret'
+  devise_secret_key: '072e49b35e9a226bf184cd575ed04a6bcedeb61bc969d2073d2dd797823604585cfe9a094037d7e84b3a414a3d88b806d88214f3b59219fe64460f14ce14a113'
 
 test:
+  db_username: resure
+  db_database: scpx
   db_adapter: postgresql
   db_encoding: unicode
-  db_database: scpx
   pool: 5
   username: scpfoundation
   password: foobar
-  secret_token: foobar
+  secret_token: 13ed1fb95f744c578e380dcb1a85badd86d391bb14a7bd693a8b7c4e37886ce77e8dfa1604a20ceca96a4a6f87a8b814e07247158c55b762f45bfafb0a9a83ae
   default_host: scpfoundation.dev
+  default_timezone: 'Moscow'
+  default_locale: 'ru'
+  faye_server: 'http://localhost:9292/faye'
+  faye_token: 'secretissosecret'
+  devise_secret_key: '072e49b35e9a226bf184cd575ed04a6bcedeb61bc969d2073d2dd797823604585cfe9a094037d7e84b3a414a3d88b806d88214f3b59219fe64460f14ce14a113'
 
 production:
+  db_username: resure
+  db_database: scpx
   db_adapter: postgresql
   db_encoding: unicode
-  db_database: scpx
   pool: 5
   username: scpfoundation
   password: foobar
-  secret_token: foobar
+  secret_token: 13ed1fb95f744c578e380dcb1a85badd86d391bb14a7bd693a8b7c4e37886ce77e8dfa1604a20ceca96a4a6f87a8b814e07247158c55b762f45bfafb0a9a83ae
   default_host: scpfoundation.dev
   email_enable_starttls_auto: true
   email_address: "smtp.gmail.com"
@@ -42,4 +55,9 @@ production:
   email_authentication: :plain
   email_user_name: "noreply@scpfoundation.net"
   email_password: "foobar"
-  email_default_url: 'localhost:3000'
+  email_default_url: 'scpfoundation.net'
+  default_timezone: 'Moscow'
+  default_locale: 'ru'
+  faye_server: 'http://localhost:9292/faye'
+  faye_token: 'secretissosecret'
+  devise_secret_key: '072e49b35e9a226bf184cd575ed04a6bcedeb61bc969d2073d2dd797823604585cfe9a094037d7e84b3a414a3d88b806d88214f3b59219fe64460f14ce14a113'
