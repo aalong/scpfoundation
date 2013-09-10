@@ -24,7 +24,8 @@ div#user_profile.row
       /*     = t('.country') */
       /*     ': */
       /*   span = @user.country */
-    div.about-block = markdown @user.about
+    - unless @user.about.blank?
+      div.about-block = markdown @user.about
   div.col-12.col-sm-4.col-lg-4
     - unless @user.status.blank?
       em*{ class: (@user.status_level.blank? ? '' : "s#{@user.status_level}") } = @user.status

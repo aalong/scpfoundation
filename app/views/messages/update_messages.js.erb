@@ -1,5 +1,11 @@
-$(".message:last").after("<%= j render @message %>");
-var m = $("#messages_container");
+var last = $('.message:last');
+var container = $('#messages_container');
+var body = $('body');
 
-if ($("#messages_container").height() - $('body').scrollTop() < 700)
-  $('body').scrollTop($(document).height());
+if (last.length == 0)
+  container.html("<%= j render @message %>");
+else
+  last.after("<%= j render @message %>");
+
+if (container.height() - body.scrollTop() < 700)
+  body.scrollTop($(document).height());
