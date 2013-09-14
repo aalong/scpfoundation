@@ -21,6 +21,10 @@ $footer-color: #888;
 
 body {
   padding-top: 40px;
+  text-align: left;
+}
+
+.hyphenate {
   text-align: justify;
 }
 
@@ -101,6 +105,28 @@ div.field_with_errors {
 
 #messages_container {
   padding-bottom: 20px;
+
+  h1, h2, h3 {
+    font-size: 130%;
+  }
+
+  .message {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 4px;
+    margin-top: 5px;
+    .info {
+      color: #999;
+      a, a:visited, a:active {
+        color: #999;
+        &:hover {
+          color: #222;
+        }
+      }
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .about-block {

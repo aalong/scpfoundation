@@ -29,7 +29,7 @@ class MarkdownParser
     markdown_params = {
       tables: true,
       no_intra_emphasis: true,
-      # autolink: true,
+      autolink: true,
       strikethrough: true,
       fenced_code_blocks: true,
       superscript: true

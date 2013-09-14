@@ -1,4 +1,8 @@
 .message
-  strong = message.user.display_name
-  ':
-  = message.content
+  div.info.clearfix
+    span.left-float
+      = link_to message.user.display_name, message.user
+    span.right-float
+      span.timestamp' title = l(message.created_at) = message.created_at.to_time.strftime("%H:%M:%S")
+    div.clear
+  == markdown message.content
