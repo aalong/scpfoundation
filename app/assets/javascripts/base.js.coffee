@@ -1,6 +1,6 @@
 
 resize_logs = ->
-  if $('#messages_container') != null
+  if $('#messages_container').length > 0
     $('body').scrollTop($(document).height())
 $(document).ready(resize_logs)
 $(document).on('page:load', resize_logs)
