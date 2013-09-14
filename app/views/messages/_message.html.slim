@@ -1,7 +1,9 @@
 .message
   div.info.clearfix
     span.left-float
-      = link_to message.user.display_name, message.user
+      = link_to message.user
+        img src=avatar_url(message.user, size=16)
+        = message.user.display_name
     span.right-float
       span.timestamp' title = l(message.created_at) = message.created_at.to_time.strftime("%H:%M:%S")
     div.clear

@@ -57,7 +57,7 @@ class MarkdownParser
     result = result.gsub(/\.{3,}/i, '&hellip;')
     result = result.gsub(/\s--\s/i, '&mdash;')
     result = result.gsub(/\[img (\w+) ([\w.\-\:\/]+) ([\wа-яА-Я\d\s\-\:]+)\]/i, 
-      '<p class="\1 img"><a href="\2" rel="external"><img src="\2" alt="\3"></a><span>\3</span></p>')
+      '<p class="\1 img"><a href="//\2" rel="external"><img src="//\2" alt="\3"></a><span>\3</span></p>')
     toggle_regexp = /\[toggle \&quot\;(.*?)\&quot\; \&quot\;(.*?)\&quot\;\]([\s\S]*)\[\/toggle\]/i
     result =~ toggle_regexp
     result = result.gsub(toggle_regexp,

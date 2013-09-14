@@ -4,7 +4,10 @@
 - content_for :sidebar
   li = link_to "&larr;&nbsp;#{t('.room_list')}".html_safe, rooms_path
   li = link_to t('.room_properties'), edit_room_path(@room)
-  button type="button" class="toggle-button" data-toggle="collapse" data-target="#participants" = t('.participants')
+  li
+    button type="button" class="toggle-button" data-toggle="collapse" data-target="#type-zone" = t('.hide_form')
+  li
+    button type="button" class="toggle-button" data-toggle="collapse" data-target="#participants" = t('.participants')
   div#participants.collapse
     li == "<ul><li>#{@room.users.map{|u| link_to(u.display_name, u)}.join('</li><li>')}</li></ul>"
 
@@ -13,7 +16,7 @@
     - @messages.each do |msg|
       = render msg
 
-.type-zone
+#type-zone.type-zone.collapse.in
   div class='col-2 col-sm-1 col-lg-2'
   div class='col-10 col-sm-10 col-lg-8'
     = form_for @room.messages.new, url: room_messages_path(@room), remote: true do |f|
