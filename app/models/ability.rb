@@ -3,6 +3,7 @@ class Ability
 
   def initialize(user)
     can :read, User
+    can :read, Room, access: 'public'
 
     if user
 
@@ -19,6 +20,7 @@ class Ability
       end
       
       if user.admin?
+        can :manage, :all
       end
     end
   end

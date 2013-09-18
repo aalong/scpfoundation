@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_room
   before_action :set_message, only: [:show, :edit, :update, :destroy]
   layout 'chat'
+  authorize_resource
 
   # GET /messages
   # GET /messages.json
