@@ -130,4 +130,11 @@ ru:
       participants: Участники
       send: Отправить
       room_properties: Настройки
+      room_history: История
       hide_form: Скрыть форму
+    history:
+      room_list: Комнаты
+      room_properties: Настройки
+      participants: Участники
+      current_messages: Текущие
+

@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :set_room, only: [:show, :edit, :update, :destroy, :history]
   authorize_resource
 
   # GET /rooms
@@ -12,6 +12,10 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
     @messages = @room.messages.last(150)
+  end
+
+  def history
+    @messages = @room.messages.reverse.paginate(per_page: 30, page: params[:page])
   end
 
   # GET /rooms/new

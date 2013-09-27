@@ -2,6 +2,7 @@ SCPX::Application.routes.draw do
 
   resources :rooms do
     resources :messages
+    get 'history', on: :member
   end
   resources :users, only: [:show, :edit, :update]
 

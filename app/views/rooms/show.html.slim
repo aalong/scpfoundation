@@ -4,6 +4,7 @@
 - content_for :sidebar
   li = link_to "&larr;&nbsp;#{t('.room_list')}".html_safe, rooms_path
   li = link_to t('.room_properties'), edit_room_path(@room) if can? :edit, @room
+  li = link_to t('.room_history'), history_room_path(@room)
   li
     button type="button" class="toggle-button" data-toggle="collapse" data-target="#type-zone" = t('.hide_form')
   li

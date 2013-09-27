@@ -1,0 +1,18 @@
+- title @room.title, show=false
+- footer '', show_footer = false
+- content_for :sidebar, @room.title
+- content_for :sidebar
+  li = link_to "&uarr;&nbsp;#{t('.room_list')}".html_safe, rooms_path
+  li = link_to "&larr;&nbsp;#{t('.current_messages')}".html_safe, rooms_path
+  li = link_to t('.room_properties'), edit_room_path(@room) if can? :edit, @room
+  li
+    button type="button" class="toggle-button" data-toggle="collapse" data-target="#participants" = t('.participants')
+  div#participants.collapse
+    li == "<ul><li>#{@room.users.map{|u| link_to(u.display_name, u)}.join('</li><li>')}</li></ul>"
+
+.container
+  p = will_paginate @messages
+  #messages_container
+    - @messages.reverse.each do |msg|
+      = render msg
+  p = will_paginate @messages

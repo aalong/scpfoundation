@@ -4,4 +4,6 @@ class Message < ActiveRecord::Base
 
   validates :message_type, inclusion: { in: %w(message action topic) }
   validates :content, presence: true
+  validates :user, presence: true
+  validates :room, presence: true
 end

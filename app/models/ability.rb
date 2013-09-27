@@ -2,6 +2,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    alias_action :index, :show, :history, to: :read
+
     can :read, User
     can :read, Room, access: 'public'
     

@@ -19,6 +19,7 @@ gem 'figaro'
 gem 'russian'
 gem 'awesome_print'
 gem 'will_paginate', '~> 3.0.0'
+gem 'bootstrap-will_paginate'
 gem 'compass-rails', github: 'milgner/compass-rails', branch: 'rails4'
 gem 'chosen-rails', github: 'tsechingho/chosen-rails', branch: 'master'
 
