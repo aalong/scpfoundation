@@ -5,8 +5,8 @@ Fabricator(:room) do
   access { 'public' }
 end
 
-Fabricator(:protected_room, from: :room) do
-  access { 'protected' }
+Fabricator(:community_room, from: :room) do
+  access { 'community' }
 end
 
 Fabricator(:private_room, from: :room) do

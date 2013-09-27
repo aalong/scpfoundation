@@ -124,10 +124,10 @@ ru:
     new:
       title: Создание комнаты
     edit:
-      title: Настройки комнаты
+      title: Настройки
     show:
-      room_list: Список комнат
+      room_list: Комнаты
       participants: Участники
       send: Отправить
-      room_properties: Настройки комнаты
+      room_properties: Настройки
       hide_form: Скрыть форму
