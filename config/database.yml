@@ -3,6 +3,7 @@ base: &base
   encoding: <%= ENV['db_encoding'] %>
   pool:     <%= ENV['db_pool'] %>
   username: <%= ENV['db_username'] %>
+  password: <%= ENV['db_password'] %>
 
 development:
   <<: *base

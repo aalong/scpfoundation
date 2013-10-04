@@ -3,6 +3,7 @@ development:
   db_database: scpx
   db_adapter: postgresql
   db_encoding: unicode
+  db_password: foobar
   pool: 5
   username: scpfoundation
   password: foobar
@@ -27,6 +28,7 @@ test:
   db_database: scpx
   db_adapter: postgresql
   db_encoding: unicode
+  db_password: foobar
   pool: 5
   username: scpfoundation
   password: foobar
@@ -43,6 +45,7 @@ production:
   db_database: scpx
   db_adapter: postgresql
   db_encoding: unicode
+  db_password: foobar
   pool: 5
   username: scpfoundation
   password: foobar
