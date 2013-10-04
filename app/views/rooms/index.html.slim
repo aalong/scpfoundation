@@ -1,6 +1,8 @@
 - title t('.title'), show=false
 
 .container
+  p = will_paginate @rooms
+
   table
     tr
       th = t('activerecord.attributes.room.title')
@@ -15,4 +17,6 @@
 
   br
 
-  = link_to t('.new_room'), new_room_path, class: 'btn btn-default'
+  p = will_paginate @rooms
+
+  = link_to t('.new_room'), new_room_path, class: 'btn btn-default' if can? :create, Room

@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.all
+    @rooms = Room.all.accessible_by(current_ability).paginate(per_page: 40, page: params[:page])
   end
 
   # GET /rooms/1
