@@ -14,7 +14,7 @@ class Ability
 
       if user.member?
         can :use, Room, access: 'public'
-        can :edit, Room, user_id: user.id
+        can [:read, :use, :edit, :update], Room, user_id: user.id
         can [:read, :use], Room, access: 'community'
       end
 
