@@ -14,6 +14,7 @@ class Ability
 
       if user.member?
         can :use, Room, access: 'public'
+        can :create, Room
         can [:read, :use, :edit, :update], Room, user_id: user.id
         can [:read, :use], Room, access: 'community'
       end
@@ -25,6 +26,9 @@ class Ability
       end
 
       if user.moderator?
+        can [:read, :use, :edit, :update], Room, ["id IN (SELECT shareable_id FROM sharings WHERE user_id = ?)", user.id] do |page|
+          page.users.include? user
+        end
       end
       
       if user.admin?

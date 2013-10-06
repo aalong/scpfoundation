@@ -29,7 +29,8 @@ describe Ability do
 
     it { should be_able_to :read, Fabricate(:community_room) }
     it { should be_able_to :use, Fabricate(:community_room) }
-    it { should be_able_to :use, Fabricate(:room) }
+    it { should be_able_to :use, Fabricate(:community_room) }
+    it { should be_able_to :create, Room }
   end
 
   describe 'as established member' do
@@ -48,6 +49,15 @@ describe Ability do
     let (:user) { Fabricate(:moderator) }
     let (:ability) { Ability.new user }
     subject { ability }
+
+    it 'should be able to edit some private rooms' do
+      private_room = Fabricate(:private_room)
+      private_room.users << user
+      should be_able_to :read, private_room
+      should be_able_to :use, private_room
+      should be_able_to :edit, private_room
+      should be_able_to :update, private_room
+    end
   end
 
   describe 'as admin' do

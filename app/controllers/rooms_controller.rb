@@ -75,6 +75,10 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:title, :description, :topic, :access, user_ids: [])
+      if current_user.staff?
+        params.require(:room).permit(:title, :description, :topic, :access, user_ids: [])
+      else
+        params.require(:room).permit(:title, :description, :topic, user_ids: [])
+      end
     end
 end

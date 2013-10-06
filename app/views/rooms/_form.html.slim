@@ -19,9 +19,10 @@
     = f.label :topic
     = f.text_field :topic, class: 'form-control'
 
-  .form-group
-    = f.label :access
-    = f.select :access, options_for_select([[t(:private), 'private'], [t(:community), 'community'], [t(:public), 'public']], selected: @room.access), {}, class: 'form-control'
+  - if current_user.staff?
+    .form-group
+      = f.label :access
+      = f.select :access, options_for_select([[t(:private), 'private'], [t(:community), 'community'], [t(:public), 'public']], selected: @room.access), {}, class: 'form-control'
 
   .form-group
     = f.label :users
