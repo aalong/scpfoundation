@@ -1,5 +1,7 @@
 SCPX::Application.routes.draw do
 
+  resources :notifications
+
   resources :rooms do
     resources :messages
     get 'history', on: :member

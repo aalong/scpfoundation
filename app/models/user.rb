@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :rooms
   has_many :messages
+  has_many :notifications
 
   attr_accessor :login
   store_accessor :properties, HSTORE_PROPERTIES
