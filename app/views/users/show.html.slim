@@ -4,10 +4,10 @@ div#user_profile.row
   div.col-12.col-sm-2.col-lg-2.avatar
     img src=avatar_url(@user)
   div.col-12.col-sm-6.col-lg-6
-    h3
+    h3.f16
       = @user.display_name
       - unless @user.country.blank?
-        img src="/assets/blank.gif" class="flag flag-#{@user.country.downcase}"
+        span class="flag #{@user.country.downcase}" &nbsp;&nbsp;&nbsp;&nbsp;
     - if @user.admin?
       p = "#{t('.administrator')} ♦"
     - elsif @user.moderator?
