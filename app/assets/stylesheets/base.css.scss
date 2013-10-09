@@ -194,6 +194,46 @@ textarea.wmd-input {
   min-height: 300px;
 }
 
+#notifications {
+  border-top: 1px solid #e6e6e6;
+  margin-top: 25px;
+
+  .unread .link {
+    font-weight: bold;
+  }
+}
+
+.notification {
+  padding: 7px 6px 7px 6px;
+  border-bottom: 1px solid #e6e6e6;
+  &:hover {
+    background: #f8f8f8;
+  }
+}
+
+.single_message {
+  border: 2px dashed #ddd;
+  padding: 7px;
+  margin: 10px;
+  margin-top: 40px;
+}
+
+.message_mention {
+  padding-left: 10px;
+  font-size: 70%;
+}
+
+a.user_link:hover {
+  text-decoration: none;
+  border-bottom: 1px dashed #aaa;
+}
+
+@media (min-width: 768px) {
+  #content-container {
+    min-height: 400px;
+  }
+}
+
 @import "sidebar";
 @import "footer";
 @import "fixes";

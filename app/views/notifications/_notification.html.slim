@@ -1,0 +1,12 @@
+div.notification.clearfix class= (notification.read ? 'read' : 'unread')
+  div.pull-left
+    - case notification.notification_type
+    - when 'system'
+      = notification.description
+    - when 'mention'
+      - case notification.target_type
+      - when 'message'
+        span.link = link_to t('.mentioned_in_the_message'), notification
+        div.message_mention = "#{notification.created_at.strftime("%d.%m.%y %H:%M")} #{notification.description.truncate(75)}"
+  div.pull-right
+    = button_to t('.read'), read_notification_path(notification), method: :put, class: 'btn btn-default btn-xs'

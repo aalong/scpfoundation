@@ -1,6 +1,7 @@
 - title @room.title, show=false
 - footer '', show_footer = false
-- content_for :sidebar, @room.title
+- content_for :sidebar
+  span title = @room.topic = @room.title
 - content_for :sidebar
   li = link_to "&larr;&nbsp;#{t('.room_list')}".html_safe, rooms_path
   li = link_to t('.room_properties'), edit_room_path(@room) if can? :edit, @room

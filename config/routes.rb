@@ -1,9 +1,13 @@
 SCPX::Application.routes.draw do
 
-  resources :notifications
+  resources :notifications, only: [:index, :show] do
+    put 'read', on: :member, as: :read
+    put 'read_all', on: :collection, as: :read_all
+    put 'destroy_read', on: :collection, as: :delete_read
+  end
 
   resources :rooms do
-    resources :messages
+    resources :messages, only: [:create, :show]
     get 'history', on: :member
   end
   resources :users, only: [:show, :edit, :update]

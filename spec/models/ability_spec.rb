@@ -20,6 +20,12 @@ describe Ability do
       should be_able_to :read, private_room
       should be_able_to :use, private_room
     end
+
+    it 'should be able to manage his notifications' do
+      notification = Fabricate(:notification, user: user)
+      should be_able_to :read, notification
+      should be_able_to :destroy, notification
+    end
   end
 
   describe 'as member' do

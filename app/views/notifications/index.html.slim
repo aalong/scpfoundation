@@ -1,0 +1,9 @@
+- title t('.title')
+
+div.clearfix
+  div.pull-left =' button_to t('.read_all'), read_all_notifications_path, method: :put, class: 'btn btn-info btn-xs'
+  div.pull-right =' button_to t('.delete_read'), delete_read_notifications_path, method: :put, class: 'btn btn-warning btn-xs', confirm: 'Are you sure?'
+
+div#notifications
+  - @notifications.each do |notification|
+    = render notification

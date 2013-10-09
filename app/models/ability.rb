@@ -12,6 +12,8 @@ class Ability
         page.users.include? user
       end
 
+      can [:read, :destroy], Notification, user_id: user.id
+
       if user.member?
         can :use, Room, access: 'public'
         can :create, Room

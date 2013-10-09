@@ -17,6 +17,12 @@ $(document).on 'keypress', '#message_content', (e) ->
   if e.keyCode == 13 && !e.shiftKey
     $('#send_message_button').click()
 
+$(document).on 'click', '.user_link', (e) ->
+  e.preventDefault()
+  textarea = $('#message_content')
+  value = "#{textarea.val()} @#{this.innerHTML} "
+  textarea.focus().val('').val(value)
+
 load_editor = ->
   content_textarea = $('textarea.wmd-input')
   if content_textarea.length != 0

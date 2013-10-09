@@ -86,6 +86,15 @@ ru:
         sign_in: Вход
         sign_up: Регистрация
         forgot_password: Забыли пароль?
+  notifications:
+    notification:
+      mentioned_in_the_message: Вы были упомянуты в сообщении
+      mentioned_in_the_comment: Вы были упомянуты в обсуждении
+      read: Отметить как прочитанное
+    index:
+      title: Уведомления
+      read_all: Пометить все как прочитанные
+      delete_read: Удалить прочитанные
   layouts:
     header:
       profile: Профиль
@@ -137,4 +146,8 @@ ru:
       room_properties: Настройки
       participants: Участники
       current_messages: Текущие
+  messages:
+    show:
+      title: Просмотр сообщения
+      to_the_room: К комнате %{room}
 

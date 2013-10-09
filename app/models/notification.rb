@@ -13,9 +13,25 @@ class Notification < ActiveRecord::Base
     @originator ||= User.find(originator_id)
   end
 
+  def path
+    case notification_type
+    when 'system'
+      nil
+    when 'mention'
+      case target_type
+      when 'message'
+        "/rooms/#{target_place}/messages/#{target_id}"
+      else
+        nil
+      end
+    else
+      nil
+    end
+  end
+
   private
 
   def publish
-    NotificationsPusher.new(user).add_content(self).push
+    NotificationsCounterPusher.new(user).add_content.push
   end
 end

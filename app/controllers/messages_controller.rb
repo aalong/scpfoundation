@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   before_action :set_room
-  layout 'chat'
 
   # GET /messages
   # GET /messages.json
@@ -10,8 +9,9 @@ class MessagesController < ApplicationController
 
   # GET /messages/1
   # GET /messages/1.json
-  # def show
-  # end
+  def show
+    @message = @room.messages.find params[:id]
+  end
 
   # GET /messages/new
   # def new
@@ -32,6 +32,27 @@ class MessagesController < ApplicationController
       if @message.save
         PrivatePub.publish_to "/rooms/#{@room.id}/messages/new",
           render_to_string("messages/update_messages.js.erb", layout: false)
+
+        usernames = []
+        @message.content.scan(/@[\w\_\-\d]+/).uniq.each do |username|
+          unless usernames.include? username
+            user = User.find_by_username username[1..-1].downcase
+            unless user.nil?
+              if @room.access == 'public' || (@room.access == 'community' && user.member?) || (@room.access == 'private' && @room.users.include?(user))
+                notification = Notification.create({
+                  user: user,
+                  notification_type: :mention,
+                  target_type: :message,
+                  target_place: @room.id,
+                  target_id: @message.id,
+                  originator_id: current_user.id,
+                  description: "[#{@room.title}]  #{current_user.display_name}: #{@message.content}"
+                })
+              end
+            end
+            usernames.push username
+          end
+        end
 
         format.html { redirect_to @room, notice: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: @message }

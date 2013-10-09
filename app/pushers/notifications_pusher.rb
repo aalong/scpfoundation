@@ -10,7 +10,7 @@ class NotificationsPusher < ActionPusher
   end
 
   def add_content content
-    @notification = content
-    Pushable.new channel, render(template: 'notifications/add_notice')
+    # @notification = content
+    # Pushable.new channel, render(template: 'notifications/add_notice')
   end
 end
