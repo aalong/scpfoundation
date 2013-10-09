@@ -28,6 +28,7 @@ class NotificationsController < ApplicationController
     notifications = current_user.notifications
     respond_to do |format|
       if notifications.update_all(read: true)
+        NotificationsCounterPusher.new(current_user).add_content.push
         format.html { redirect_to notifications_path, notice: 'Notifications were successfully marked as read' }
         # format.js
       else
