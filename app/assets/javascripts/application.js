@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.effect-highlight
 //= require turbolinks
 //= require private_pub
 //= require twitter/bootstrap

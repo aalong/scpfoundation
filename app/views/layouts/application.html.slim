@@ -13,3 +13,4 @@ html lang='ru'
 
     = render partial: 'layouts/footer'
 
+  = subscribe_to "/users/#{current_user.id}/notifications/new" if current_user

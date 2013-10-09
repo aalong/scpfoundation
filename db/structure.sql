@@ -85,11 +85,12 @@ CREATE TABLE notifications (
     id integer NOT NULL,
     user_id integer,
     notification_type character varying(255),
-    read boolean,
+    read boolean DEFAULT false NOT NULL,
     target_type character varying(255),
     target_place integer,
     target_id integer,
     originator_id integer,
+    description character varying(255),
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );

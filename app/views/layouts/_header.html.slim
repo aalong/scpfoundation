@@ -7,12 +7,13 @@ div.navbar.navbar-fixed-top.navbar-default
         span.icon-bar
         span.icon-bar
 
-      p.navbar-text.navbar-notifications
-        a href='/notifications'
-          span.badge
-            span.icon-inbox
-            '
-            ' 0
+      - if current_user
+        p.navbar-text.navbar-notifications
+          a href='/notifications'
+            span.badge#notifications_counter_container
+              span.icon-inbox
+              '
+              span#notifications_counter' = current_user.unread_notifications
 
       a.navbar-brand href=root_url(subdomain: nil)
         ' SCP Foundation

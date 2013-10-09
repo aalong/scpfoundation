@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
     username
   end
 
+  def unread_notifications
+    @unread_notifications ||= notifications.where(read: false).count
+  end
+
   def birthdate
     unless self.birthday.blank?
       Date.strptime self.birthday, "%Y-%m-%d"
