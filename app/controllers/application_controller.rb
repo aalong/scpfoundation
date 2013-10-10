@@ -21,8 +21,10 @@ class ApplicationController < ActionController::Base
   end
 
   def user_locale
-    if user_signed_in?
-      I18n.locale = params[:locale] || current_user.locale
+    if params[:locale] && %W(en ru).include?(params[:locale])
+      I18n.locale = params[:locale]
+    elsif user_signed_in?
+      I18n.locale = current_user.locale
     else
       I18n.locale = extract_locale
     end
