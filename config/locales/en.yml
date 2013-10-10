@@ -1,26 +1,152 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
-en:
+ru:
+  # Globals
+  save: Save
+  private: Private
+  community: Community
+  public: Public
+  back: Back
+  activerecord:
+    attributes:
+      user:
+        login: Login
+        username: Username
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
+        current_password: Current password
+        remember_me: Remember me
+        real_name: Real name
+        about: About
+        timezone: Timezone
+        locale: Language
+        gender: Gender
+        birthday: Birthday
+        country: Country
+      room:
+        title: Title
+        description: Description
+        topic: Topic
+        access: Access
+        users: Participants
   users:
     show:
+      profile: Profile
+      sign_out: Sign out
+      edit: Edit
+      member_since: Member since
+      name: Name
       administrator: Administrator
       moderator: Moderator
+      send_message: Send message
+      flag: Flag
+      warnings: Warnings
+      block: Block
+      edit: Edit
+      user_activity: User activity
+      comments: Comments
+      edits: Edits
+      pages: Pages
+      messages: Messages
+      votes: Votes
+      nothing_here: Nothing here yet
+    sessions:
+      new:
+        sign_in: Sign in
+        remember_me: Remember me
+    passwords:
+      new:
+        title: Password recovery
+        send_me_reset_password: Send me password reset instructions
+      edit:
+        change_my_password: Change my password
+        title: Password edit
+    registrations:
+      new:
+        title: Sign Up
+        sign_up: Sign Up
+        username_hint: "Letters, digits, -, _ and spaces"
+        password_hint: At least eight characters
+      edit:
+        title: Profile Edit
+        current_password: Current password
+        we_need_current_password: We need your current password to update profile
+        update: Update
+        cant_change_username: You can't change your username
+        profile: Profile
+        about: Bio
+        preferences: Preferences
+        russian: Russian
+        english: English
+        male: Male
+        female: Female
+        unknown: Unknown
+        back: Back to the profile
+    shared:
+      links:
+        sign_in: Sign in
+        sign_up: Sign up
+        forgot_password: Forgot password?
+  notifications:
+    notification:
+      mentioned_in_the_message: You were mentioned in the message
+      mentioned_in_the_comment: You were mentioned in the discussion
+      read: Mark as read
+    index:
+      title: Notifications
+      read_all: Mark all as read
+      delete_read: Delete read
+  layouts:
+    header:
+      profile: Profile
+      edit: Edit
+      preferences: Preferences
+      sign_out: Sign out
+      sign_in: Sign in
+      navigation: Navigation
+    sidebar:
+      jump_to: Jump to
+      sections: Sections
+      navigation: Navigation
+      objects: Objects
+      sandbox: Sandbox
+      forum: Forum
+      drafts: Drafts
+      admin: Admin
+      additional: Additional
+      experiment_logs: Experiment logs
+      incident_reports: Incident reports
+      interviews: Interviews
+      other: Other
+      stories: Stories
+      tags: Tags
+      faq: FAQ
+      updates: Updates
+      new_comments: Recent comments
+      new_pages: New pages
+      recent_edits: Recent edits
+      messages: Messages
+      irc_logs: 'IRC-logs'
+  rooms:
+    index:
+      title: Rooms
+      new_room: New room
+    new:
+      title: New Room
+    edit:
+      title: Room properties
+    show:
+      room_list: Rooms list
+      participants: Participants
+      send: Send
+      room_properties: Room properties
+      room_history: History
+      hide_form: Hide form
+    history:
+      room_list: Rooms list
+      room_properties: Properties
+      participants: Participants
+      current_messages: Current messages
+  messages:
+    show:
+      title: Message
+      to_the_room: To the room %{room}
