@@ -20,5 +20,6 @@ Procfile.local
 libpeerconnection.log
 .env
 public/assets
-config/application.yml
+/config/application.yml
 *.sublime-*
+config/private_pub.yml
