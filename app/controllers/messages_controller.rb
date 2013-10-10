@@ -38,7 +38,7 @@ class MessagesController < ApplicationController
           unless usernames.include? username
             user = User.find_by_username username[1..-1].downcase
             unless user.nil?
-              if @room.access == 'public' || (@room.access == 'community' && user.member?) || (@room.access == 'private' && @room.users.include?(user))
+              if @room.access == 'public' || (@room.access == 'community' && user.member?) || (@room.access == 'private' && (@room.users.include?(user) || @room.user == user))
                 notification = Notification.create({
                   user: user,
                   notification_type: :mention,
