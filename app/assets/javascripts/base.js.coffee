@@ -16,6 +16,7 @@ $(document).on 'ajax:complete', '#new_message', (event,xhr,status) ->
 $(document).on 'keypress', '#message_content', (e) ->
   if e.keyCode == 13 && !e.shiftKey
     $('#send_message_button').click()
+    resize_logs()
 
 $(document).on 'click', '.user_link', (e) ->
   e.preventDefault()
