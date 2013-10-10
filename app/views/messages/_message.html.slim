@@ -6,6 +6,6 @@
       = link_to message.user, class: 'user_link'
         = message.user.display_name
     span.right-float
-      span.timestamp' title = l(message.created_at) = link_to(message.created_at.to_time.strftime("%H:%M:%S"), room_message_path(message.room, message))
+      span.timestamp' title = l(message.created_at) = link_to(time_ago_in_words(message.created_at), room_message_path(message.room, message))
     div.clear
   == markdown message.content

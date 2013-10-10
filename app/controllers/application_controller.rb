@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :user_locale
-  around_filter :user_time_zone,  if: :current_user
+  around_filter :set_time_zone
 
   def current_ability
     @current_ability ||= Ability.new(current_user)
@@ -16,8 +16,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :real_name, :about) }
   end
 
-  def user_time_zone(&block)
-    Time.use_zone(current_user.timezone, &block)
+  def set_time_zone(&block)
+    if current_user
+      Time.use_zone(current_user.timezone, &block)
+    else
+      Time.use_zone(ENV['default_timezone'], &block)
+    end
   end
 
   def user_locale
