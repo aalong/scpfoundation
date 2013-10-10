@@ -45,7 +45,7 @@ table {
 }
 
 .container {
-  max-width: 1024px;
+  max-width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -91,15 +91,6 @@ div.field_with_errors {
   margin-top: 20px;
 }
 
-#messages_container {
-  margin-bottom: 100px;
-  text-align: left;
-
-  img {
-    max-width: 298px;
-  }
-}
-
 .type-zone {
   z-index: 100;
   position: fixed;
@@ -120,7 +111,12 @@ div.field_with_errors {
 }
 
 #messages_container {
-  padding-bottom: 20px;
+  margin-bottom: 100px;
+  text-align: left;
+
+  img {
+    max-width: 298px;
+  }
 
   h1, h2, h3 {
     font-size: 130%;
