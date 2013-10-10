@@ -1,0 +1,10 @@
+development:
+  server: 'http://devx:9292/faye/faye'
+  secret_token: "secretissosecret"
+test:
+  server: 'http://devx:9292/faye/faye'
+  secret_token: "secret"
+production:
+  server: 'http://devx:9292/faye'
+  secret_token: "secretissosecret"
+  signature_expiration: 3600 # one hour
