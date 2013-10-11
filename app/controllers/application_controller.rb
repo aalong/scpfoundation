@@ -4,12 +4,26 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :user_locale
   around_filter :set_time_zone
+  after_filter :store_location
 
   def current_ability
     @current_ability ||= Ability.new(current_user)
   end
 
   private
+
+  def store_location
+    if (request.fullpath != "/login" &&
+        request.fullpath != "/logout" &&
+        request.fullpath != "/account/amnesia" &&
+        !request.xhr?) # Don't store AJAX calls
+      session[:previous_url] = request.fullpath
+    end
+  end
+
+  def after_sign_in_path_for(resource)
+    session[:previous_url] || root_path
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(User::PROPERTIES - User::PROTECTED_PROPERTIES) }
