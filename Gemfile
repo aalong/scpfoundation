@@ -23,6 +23,7 @@ gem 'will_paginate', '~> 3.0.0'
 gem 'bootstrap-will_paginate'
 gem 'compass-rails', "~> 2.0.alpha.0"
 gem 'chosen-rails', github: 'tsechingho/chosen-rails', branch: 'master'
+gem 'jquery-atwho-rails'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.4'

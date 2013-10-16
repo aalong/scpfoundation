@@ -159,6 +159,14 @@ div.field_with_errors {
   height: 42px;
 }
 
+.hidden {
+  display: none;
+}
+
+#atwho-container .atwho-view {
+  z-index: 100;
+}
+
 #user_profile {
   text-align: left;
 

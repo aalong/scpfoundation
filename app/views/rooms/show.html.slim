@@ -21,12 +21,13 @@
       = render msg
 
 - if can? :use, @room
+  div#participants_list.hidden = @room.users.map { |u| u.username }.to_json
   #type-zone.type-zone.collapse.in
     div class='col-2 col-sm-1 col-lg-2'
     div class='col-10 col-sm-10 col-lg-8'
       = form_for @room.messages.new, url: room_messages_path(@room), remote: true do |f|
         .col-12.col-sm-10.col-lg-10
-          = f.text_area :content, class: 'form-control', autofocus: true, rows: 1
+          = f.text_area :content, class: 'form-control atwho', autofocus: true, rows: 1
         .col-12.col-sm-2.col-lg-2
           = f.submit t('.send'), class: 'btn btn-mini btn-default', id: 'send_message_button'
     div class='col-0 col-sm-1 col-lg-2'

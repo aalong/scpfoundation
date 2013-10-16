@@ -1,9 +1,7 @@
 
 resize_logs = ->
   if $('#messages_container').length > 0
-    $('body').scrollTop($(document).height())
-$(document).ready(resize_logs)
-$(document).on('page:load', resize_logs)
+    $('html').scrollTop($(document).height())
 
 toggle_sidebar = ->
   $('*[data-toggle="sidebar-collapse"]').click
@@ -36,5 +34,16 @@ load_editor = ->
     editor = new Markdown.Editor(converter, '', options)
     editor.run()
 
-$(document).ready(load_editor)
-$(document).on('page:load', load_editor)
+load_atwho = ->
+  participants = $('#participants_list')
+  if participants.length > 0
+    participants = JSON.parse participants.html()
+    $('textarea.atwho').atwho({ at: '@', data: participants })
+
+boot = ->
+  load_editor()
+  resize_logs()
+  load_atwho()
+
+$(document).ready(boot)
+$(document).on('page:load', boot)

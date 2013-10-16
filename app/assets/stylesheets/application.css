@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require chosen
+ *= require jquery.atwho
  *= require base
  */

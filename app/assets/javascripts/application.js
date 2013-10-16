@@ -1,4 +1,6 @@
 //= require jquery
+//= require jquery.caret
+//= require jquery.atwho
 //= require jquery_ujs
 //= require jquery.ui.effect-highlight
 //= require turbolinks
