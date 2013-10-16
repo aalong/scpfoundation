@@ -222,9 +222,31 @@ textarea.wmd-input {
   margin-top: 40px;
 }
 
+
+h2#page-title, #page_title a {
+  color: #444;
+  font-weight: normal;
+}
+
 .message_mention {
   padding-left: 10px;
   font-size: 70%;
+}
+
+p.right.img {
+  margin-left: 15px;
+}
+
+.page-actions {
+  text-align: right;
+  a {
+    padding-right: 4px;
+    margin-bottom: 6px;
+  }
+}
+
+.container .navbar-header a.namespace-brand {
+  margin-left: -23px;
 }
 
 a.user_link:hover {

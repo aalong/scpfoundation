@@ -1,0 +1,12 @@
+- title 'Recent edits'
+
+div
+  ul
+    - @pages.each do |page|
+      li
+        =' link_to page.title, page_versions_url( page, subdomain: get_subdomain( page.namespace.name ) )
+        =' page.updated_at
+        =' t('.by')
+        = link_to page.originator, user_path( page.originator )
+
+  p = will_paginate @pages, renderer: BootstrapPagination::Rails

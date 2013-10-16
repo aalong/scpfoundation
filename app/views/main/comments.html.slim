@@ -1,0 +1,12 @@
+- title t('.title')
+
+div
+  ul
+  - @comments.each do |comment|
+    li
+      =' link_to comment.user.username, comment.user
+      =' link_to t('.commented'), ( page_comments_url( comment.page, subdomain: get_subdomain( comment.page.namespace.name ) ) + "#msg#{comment.id}")
+      =' link_to comment.page.title, page_url( comment.page, subdomain: get_subdomain( comment.page.namespace.name ) )
+      = l( comment.created_at, format: :timestamp )
+
+  p = will_paginate @comments, renderer: BootstrapPagination::Rails

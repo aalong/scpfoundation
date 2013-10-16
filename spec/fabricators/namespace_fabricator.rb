@@ -1,5 +1,5 @@
 Fabricator(:namespace) do
-  title { Faker::Lorem.word }
+  title { Faker::Lorem.word + ' ' + Faker::Lorem.word }
   name { Faker::Lorem.word }
   user { User.find_by_username('community') }
   access { 'community' }

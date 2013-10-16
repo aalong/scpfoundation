@@ -1,0 +1,36 @@
+- title @page.title, show_title = false
+
+h2#page_title
+  - if @page.name.blank? || params[:namespace]
+    = @page.title
+  - else
+    = link_to @page.title, page_path(@page)
+
+- if @namespace.access == 'private'
+  div.page-participants
+    =' t('.private', participants: @page.users.map { |u| u.display_name}.join(', ') )
+
+div#page-content.hyphenate
+  = markdown @page.content
+
+- if current_user
+  div.page-actions
+    - if can? :use, @namespace
+      =' link_to edit_page_path(@page), class: 'btn btn-default btn-xs' do
+        i.icon-pencil &nbsp;
+        =' t('.edit')
+    =' link_to page_versions_path(@page), class: 'btn btn-default btn-xs' do
+      i.icon-list-alt &nbsp;
+      =' t('.versions')
+    div.clear.visible-phone
+    - if can?(:comment, @page)
+      =' link_to page_comments_path(@page), class: 'btn btn-default btn-xs' do
+        i.icon-comment &nbsp;
+        =' t('.comments')
+    - if can?(:vote, @page)
+      =' link_to page_votes_path(@page), class: 'btn btn-default btn-xs' do
+        i.icon-certificate &nbsp;
+        =' t('.rate')
+
+/* div#page-tags */
+/*   = @page.tags.map { |t| link_to(t.name, t) }.join(' • ').html_safe */

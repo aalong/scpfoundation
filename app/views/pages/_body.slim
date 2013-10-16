@@ -1,0 +1,2 @@
+h2#page_title = params[:page][:title] if params[:page]
+div#page-content.hyphenate = markdown(params[:page][:content]) if params[:page]

@@ -15,8 +15,12 @@ div.navbar.navbar-fixed-top.navbar-default
               '
               span#notifications_counter' = current_user.unread_notifications
 
-      a.navbar-brand href=root_url(subdomain: nil)
+      a.navbar-brand.hidden-xs href=root_url(subdomain: nil)
         ' SCP Foundation
+      a.navbar-brand.visible-xs href=root_url(subdomain: nil)
+        ' SCP
+      - if @namespace.title && @namespace.name != 'main' && @namespace.title != 'SCP Foundation'
+        = link_to @namespace.title, root_url, class: 'navbar-brand namespace-brand'
 
     div.collapse.navbar-collapse.navbar-ex1-collapse
       ul.nav.navbar-nav.navbar-right

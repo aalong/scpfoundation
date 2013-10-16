@@ -1,0 +1,54 @@
+= form_for(@page, html: { class: 'form-horizontal' }) do |f|
+  legend = content_for :title
+
+  - if @page.errors.any?
+    div.alert.alert-info
+      ul
+        - @page.errors.full_messages.each do |msg|
+          li = msg
+
+  .form-group
+    = f.text_field :title, class: 'form-control', autofocus: true
+
+  .form-group
+    = f.text_area :content, required: true, class: 'form-control wmd-input', id: 'wmd-input'
+
+  .form-group
+    - if @page.created_at
+      - @page.commit_message = ''
+      = f.label :commit_message, class: 'col-lg-3 control-label'
+      .col-lg-9
+        = f.text_field :commit_message, class: 'form-control'
+
+  - if params[:action] == 'new' && params[:name] then @page.name = params[:name] end
+
+  /* .form-group */
+  /*   button type="button" class="toggle-button" data-toggle="collapse" data-target="#page_options" = t('.options') */
+
+  /* .collapse#page_options */
+
+  .form-group
+    - if params[:action] == 'new' && params[:name] then @page.name = params[:name] end
+    = f.label :name, "#{@namespace.name == 'main' ? '' : (@namespace.name + '.') }scpfoundation.net/", class: 'col-lg-3 control-label'
+    .col-lg-9
+      = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :users, class: 'col-lg-3 control-label'
+    .col-lg-9
+      = f.collection_select :user_ids, User.order(:username), :id, :display_name, {}, { multiple: true, class: 'form-control' }
+
+
+  hr
+  .form-actions
+    .col-lg-3
+    .col-lg-9
+      =' f.submit t(:save), class: 'btn btn-primary'
+      =' link_to t('.preview'), markdown_preview_path, class: 'btn btn-default', id: 'pages_preview_button'
+      - if @page.created_at?
+        = link_to t('.cancel'), @page, class: 'btn'
+      - else
+        = link_to t('.cancel'), root_url, class: 'btn'
+
+h3#page_preview_title
+div#page_preview_content

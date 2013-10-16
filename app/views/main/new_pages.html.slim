@@ -1,0 +1,13 @@
+- title 'New pages'
+
+div
+  ul
+    - @pages.each do |page|
+      li
+        =' link_to page.title, page_url(page, subdomain: page.namespace.name)
+        =' "(#{ page.updated_at })"
+        =' 'by'
+        = link_to page.originator, user_path(page.originator)
+
+
+  p = will_paginate @pages, renderer: BootstrapPagination::Rails

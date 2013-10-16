@@ -151,3 +151,119 @@ ru:
       title: Просмотр сообщения
       to_the_room: К комнате %{room}
 
+  pages:
+    form:
+      access_list: Список доступа
+      access_list_hint: Пользователи, которые имеют доступ к этой странице, используйте запятую в качестве разделителя
+      options: Опции
+      name_hint: Используется для составления адреса страницы, только латиница, цифра, дефис и символ подчёркивания
+      tag_list_hint: Список тегов, используйте запятую в качестве разделителя
+      page_address_hint: Адрес страницы
+      preview: Предосмотр
+      cancel: Отменить
+      commit_message: Описание изменений
+      content: 'Текст'
+    compare:
+      title: 'Сравнение ревизии %{first} с %{second}'
+      revisions: '&larr; Назад к списку ревизий'
+      page: '&uarr; Назад к просмотру страницы'
+      rollback: Откатить до этой ревизии
+      rollback_confirmation: 'Вы уверены?'
+    edit:
+      title: Редактирование страницы
+      delete: Удалить эту страницу
+      delete_confirmation: Вы уверены?
+    index:
+      new: Новая страница
+    namespace_index:
+      edit: Править
+      all: Все страницы
+      new: Новая страница
+    new:
+      title: Новая страница
+    page_not_found:
+      header: Страница не найдена
+      message: 'Но вы можете %{link} с таким адресом.'
+      link: создать новую
+    show:
+      private: 'Эта страница приватна. Участники: %{participants}.'
+      edit: Править
+      versions: Версии
+      comments: Комментарии
+      rate: Рейтинг
+      discussion: Обсуждение
+  tags:
+    form:
+      cancel: Отменить
+    index:
+      title: Теги
+      new: Добавить тег
+    new:
+      title: Добавить тег
+    show:
+      index: '&larr; Список тегов'
+      edit: Редактировать
+      delete: Удалить этот тег
+      delete_confirmation: 'Вы уверены?'
+      pages: Страницы с тегом
+  versions:
+    diff:
+      title: Сравнение версий
+      page: '&larr; Вернуться к странице'
+      version: '&larr; Вернуться к списку версий'
+      author: 'Автор:'
+      changes: 'Изменения:'
+      date: 'Дата:'
+    index:
+      title: 'Версии страницы "%{page}"'
+      page: '&larr; Вернуться к странице'
+      hide: Скрыть
+      changes: Последние изменения версии
+      all_versions: Все версии
+      number: '#'
+      user: Пользователь
+      changes: Изменения
+      date: Дата
+      compare: Сравнить
+      revision: Версия
+      current: Текущая
+      last_changes: Последние изменения
+    show:
+      title: 'Версия "%{page}"'
+      page: '&larr; Вернуться к странице'
+      version: '&larr; Вернуться к списку версий'
+      rollback: Откатиться до этой версии
+      rollback_confirmation: Вы уверены?
+      author: 'Автор:'
+      changes: 'Изменения:'
+      date: 'Дата:'
+  votes:
+    create:
+      duplicate_vote_alert: Вы уже голосовали за эту статью
+      vote_created_notice: Голос успешно добавлен
+      vote_wasnt_created_alert: Голос не был добавлен
+    update:
+      vote_updated_notice: Голос успешно обновлен
+    destroy:
+      vote_destroyed_notice: Голос успешно удален
+    form:
+      update: Изменить голос
+      vote: Голосовать
+      negative: Негативный
+      neutral: Нейтральный
+      positive: Позитивный
+    helper:
+      value_collection:
+        negative: Отрицательно
+        neutral: Нейтрально
+        positive: Положительно
+    index:
+      page: '&larr; Вернуться к странице'
+      page_rating: 'Рейтинг страницы:'
+      staff_rating: 'Рейтинг персонала:'
+      admin_rating: 'Рейтинг администрации:'
+      publishing: 'Страница готова для переноса, автор может запросить его на %{link}.'
+      requests: странице запросов персонала
+      remove: Удалить голос
+      remove_confirmation: Вы уверены?
+

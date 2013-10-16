@@ -1,0 +1,36 @@
+- title "Versions diff"
+= link_to t('.page').html_safe, page_path(@page)
+br
+= link_to t('.version').html_safe, page_versions_path(@page)
+
+div.well
+  strong
+    =' t('.author')
+  = link_to @first_version.originator, user_path(@first_version.originator)
+  br
+  strong
+    =' t('.changes')
+  = @first_version.commit_message
+  br
+  strong
+    =' t('.date')
+  = link_to @first_version.object_updated_at, page_version_path(@page, @first_version)
+
+div.well
+  strong
+    =' t('.author')
+  = link_to @second_version.originator, user_path(@second_version.originator)
+  br
+  strong
+    =' t('.changes')
+  = @second_version.commit_message
+  br
+  strong
+    =' t('.date')
+  = link_to @second_version.updated_at, page_version_path(@page, @second_version)
+
+div.well
+  - Differ.format = :html
+  h4 = raw Differ.diff_by_word @first_version.title, @second_version.title
+  pre
+    = raw Differ.diff_by_word @first_version.content, @second_version.content

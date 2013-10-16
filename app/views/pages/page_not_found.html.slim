@@ -1,0 +1,10 @@
+- title '404'
+
+h3 Page not found
+
+- if can? :use, @namespace
+  p
+    ' But you can
+    a href="/new?name=#{params[:id]}" create new
+    '
+    ' at this address.

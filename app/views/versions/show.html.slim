@@ -1,0 +1,34 @@
+- title t('.title', :page => @page.title)
+= link_to t('.page').html_safe, page_path(@page)
+br
+= link_to t('.version').html_safe, page_versions_path(@page)
+
+div.well
+  - if can? :edit, @page
+    div.right
+      = link_to t('.rollback'), rollback_page_version_path(@page, @version), class: 'btn btn-mini', confirm: 'Are you sure?'
+  strong
+    =' t('.author')
+  = link_to @version.originator, user_path(@version.originator)
+  br
+  strong
+    =' t('.changes')
+  = @version.commit_message
+  br
+  strong
+    =' t('.date')
+  = @version.updated_at
+
+div.well
+  h4 = @version.title
+  = markdown @version.content
+
+/* div.well.diff-area */
+/*   - Differ.format = :html */
+/*   - previous_version = @version.previous */
+/*   - if previous_version.object != nil */
+/*     h4 = raw Differ.diff_by_word @version.reify.title, previous_version.reify.title */
+/*     = raw Differ.diff_by_word @version.reify.content, previous_version.reify.content */
+/*   - else */
+/*     h4 = raw @version.reify.title */
+/*     = raw @version.reify.content */

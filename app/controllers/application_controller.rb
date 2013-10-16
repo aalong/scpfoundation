@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :user_locale
+  before_filter :load_namespace
   around_filter :set_time_zone
   after_filter :store_location
 
@@ -54,5 +55,15 @@ class ApplicationController < ActionController::Base
     else
       I18n.default_locale
     end
+  end
+
+  def load_namespace
+    redirect_to (root_url(subdomain: nil) + request.fullpath[1..-1]) if request.subdomain == 'main'
+    if request.subdomain.blank?
+      @namespace ||= Namespace.find_by_name 'main'
+    else
+      @namespace ||= Namespace.find_by_name request.subdomain
+    end
+    authorize! :read, @namespace
   end
 end

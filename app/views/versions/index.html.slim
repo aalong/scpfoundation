@@ -1,0 +1,55 @@
+- title t('.title', page: @page.title)
+
+= link_to t('.page').html_safe, page_path(@page)
+
+- unless @page.versions.last.nil?
+  .toggle style='margin-top:15px'
+    span.hide_action
+      =' t('.hide')
+    span.show_action
+      =' t('.last_changes')
+    span.fold_action
+      =' t('.last_changes')
+    div.spoiler style="display:none"
+      div.diff-area
+        - Differ.format = :html
+        - last_version = @page.versions.last
+        pre
+          h4 = raw Differ.diff_by_word @page.title, last_version.title
+          = raw Differ.diff_by_word @page.content, last_version.content
+
+
+h4 =' t('.all_versions')
+
+/* - rev = @versions.count */
+form.history-form action=diff_page_versions_path(@page)
+  table.table.table-hover.table-striped.table-bordered
+    thead
+      th =' t('.revision')
+      th =' t('.user')
+      th =' t('.changes')
+      th =' t('.date')
+      th =' t('.compare')
+    tr.success
+      td = t('.current')
+      td = link_to @page.originator, user_path(@page.originator)
+      td = @page.commit_message
+      td = link_to @page.updated_at, page_path(@page)
+      td.center-align
+        input type="radio" name="from" value=0
+        '
+        input type="radio" name="to" value=0
+    - @versions.reverse.each do |version|
+      - if version.nil?
+      - else
+        tr
+          td = version.id
+          td = link_to version.originator, user_path(version.originator)
+          td = version.commit_message
+          td = link_to version.updated_at, page_version_path(@page, version)
+          td.center-align
+            input type="radio" name="from" value=version.id
+            '
+            input type="radio" name="to" value=version.id
+  div.right-align
+    = submit_tag t('.compare'), id: "history-compare-button", class: "btn"
