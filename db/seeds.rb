@@ -10,3 +10,28 @@ community = {
 }
 
 User.create!(community) if User.where(username: 'community').count == 0
+
+namespaces = [
+  {
+    name: 'main',
+    access: 'public'
+  },
+
+  {
+    name: 'meta',
+    title: 'Meta',
+  },
+
+  {
+    name: 'sandbox',
+    title: 'Sandbox',
+  },
+
+  {
+    name: 'drafts',
+    title: 'Drafts',
+    access: 'private'
+  }
+]
+
+Namespace.create! namespaces if Namespace.all.count == 0

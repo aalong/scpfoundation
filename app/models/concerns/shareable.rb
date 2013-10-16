@@ -1,6 +1,6 @@
 require 'active_support/concern'
 module Shareable
-  extend  ActiveSupport::Concern
+  extend ActiveSupport::Concern
 
   LEVELS = %w(private community public)
 
