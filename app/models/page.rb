@@ -7,6 +7,7 @@ class Page < ActiveRecord::Base
 
   before_validation :prepare_values
   after_validation :update_slug
+  after_save :check_slug
 
   validates :name, format: /\A[\w\_\d\-]+\Z/, if: :check_name?
   validate :check_name_uniqueness
@@ -39,6 +40,14 @@ class Page < ActiveRecord::Base
     write_attribute :slug, (namespace.name.to_s + ':' + read_attribute(:name).to_s)
   end
 
+  def check_slug
+    if namespace.access == 'private' && name.index(id.to_s) == nil
+      write_attribute :name, "#{id}-#{name}"
+      update_slug
+      save!
+    end
+  end
+
   def check_name?
     name_changed? && !read_attribute(:name).blank?
   end
@@ -52,12 +61,16 @@ class Page < ActiveRecord::Base
 
   def prepare_version
     page = Page.find id
-    {
-      title: page.title,
-      content: page.content,
-      user: page.editor,
-      commit_message: page.commit_message
-    }
+    if title != page.title or content != page.content or editor != page.editor
+      {
+        title: page.title,
+        content: page.content,
+        user: page.editor,
+        commit_message: page.commit_message
+      }
+    else
+      false
+    end
   end
 
   def restore_version values

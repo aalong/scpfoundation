@@ -25,7 +25,8 @@ module Versionable
   end
 
   def create_version
-    versions.create! prepare_version
+    new_version = prepare_version
+    versions.create!(new_version) if new_version
   end
 end
 
