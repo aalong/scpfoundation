@@ -57,13 +57,21 @@
 }
 
 // 228
+@media (min-width: 850px) and (max-width: 992px) {
+  #content-container {
+    width: 700px;
+    margin-left: 70px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .bs-affix {
+    left: 20px;
+  }
+}
 
 @media (min-width: 768px) {
   .bs-docs-sidenav {
-      // width: 258px;
-  }
-  .bs-docs-sidenav {
-      // width: 228px;
       margin: 10px 0 0;
       padding: 0;
       background-color: #fff;
