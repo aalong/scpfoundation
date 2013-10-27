@@ -6,11 +6,11 @@ div.sidebar.bs-docs-sidebar.bs-affix
     ul
       li.nav-header
         = t('.jump_to')
-      li = link_to t('.objects'), '/pages'
+      li = link_to t('.objects'), '/objects-list'
       - if true #current_user
-        li = link_to t('.sandbox'), '/pages'
+        li = link_to t('.sandbox'), root_url(subdomain: 'sandbox')
         li = link_to t('.forum'), '/pages'
-        li = link_to t('.drafts'), '/pages'
+        li = link_to t('.drafts'), root_url(subdomain: 'drafts')
         li = link_to t('.messages'), rooms_path
         - if current_user && current_user.staff?
           li = link_to t('.admin'), '/pages'
