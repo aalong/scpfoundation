@@ -249,6 +249,16 @@ p.right.img {
   margin-left: -23px;
 }
 
+ins {
+  background: #D2FFD5;
+  text-decoration: none;
+}
+
+del {
+  background: #FFD3D4;
+  text-decoration: none;
+}
+
 a.user_link:hover {
   text-decoration: none;
   border-bottom: 1px dashed #aaa;
