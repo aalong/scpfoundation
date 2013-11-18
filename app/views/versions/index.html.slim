@@ -2,15 +2,10 @@
 
 = link_to t('.page').html_safe, page_path(@page)
 
-- unless @page.versions.last.nil?
-  .toggle style='margin-top:15px'
-    span.hide_action
-      =' t('.hide')
-    span.show_action
-      =' t('.last_changes')
-    span.fold_action
-      =' t('.last_changes')
-    div.spoiler style="display:none"
+div
+  - unless @page.versions.last.nil?
+    button type="button" class="toggle-button" data-toggle="collapse" data-target="#last-changes" =' t('.last_changes')
+    div#last-changes.collapse
       div.diff-area
         - Differ.format = :html
         - last_version = @page.versions.last

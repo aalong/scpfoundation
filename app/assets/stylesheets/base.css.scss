@@ -264,6 +264,36 @@ a.user_link:hover {
   border-bottom: 1px dashed #aaa;
 }
 
+blockquote p {
+  font-size: $font-size-base;
+}
+
+.toggle {
+  .hide_action {
+    display: none;
+  }
+
+  .show_action {
+    display: none;
+  }
+
+  .fold_action {
+    border-bottom: 1px #888 dashed;
+    cursor: pointer;
+  }
+
+  a.toggle {
+    border-bottom: 1px #888 dashed;
+    cursor: pointer;
+    text-decoration: none;
+    color: $gray;
+  }
+
+  .spoiler {
+    display: none;
+  }
+}
+
 @media (min-width: 768px) {
   #content-container {
     min-height: 400px;

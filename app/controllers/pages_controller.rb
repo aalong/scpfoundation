@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = @namespace.pages.accessible_by(current_ability).paginate(per_page: 30, page: params[:page])
+    @pages = @namespace.pages.accessible_by(current_ability).paginate(per_page: 50, page: params[:page])
   end
 
   # GET /pages/1

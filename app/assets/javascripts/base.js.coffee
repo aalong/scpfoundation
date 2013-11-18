@@ -3,6 +3,14 @@ resize_logs = ->
   if $('#messages_container').length > 0
     $('html').scrollTop($(document).height())
 
+$(document).on 'click', '.fold_action', ->
+  parent = $(this).parent()
+  parent.find('.spoiler').toggle 'fast'
+  if $(this).html() == parent.find('.show_action').html()
+    $(this).html parent.find('.hide_action').html()
+  else
+    $(this).html parent.find('.show_action').html()
+
 toggle_sidebar = ->
   $('*[data-toggle="sidebar-collapse"]').click
 $(document).on 'click', '*[data-toggle="sidebar-collapse"]', ->
