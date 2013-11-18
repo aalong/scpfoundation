@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+APP_PATH = File.expand_path('../../config/application',  __FILE__)
+require_relative '../config/environment'
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', __FILE__)
+require 'bundler/setup'
+
+pages = JSON.parse (IO.read 'tmp/scp-ru.json')
+
+namespace = Namespace.find_by_name 'main'
+user = User.find_by_username 'community'
+
+pages.each do |page|
+  unless page.nil?
+    Page.create(
+      user: user,
+      namespace: namespace,
+      content: page["content"],
+      title: page["title"],
+      name: page["fullname"]
+    )
+  end
+end
