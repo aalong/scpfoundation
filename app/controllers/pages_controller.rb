@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
     begin
-      @page = @namespace.pages.accessible_by(current_ability).find_by_slug! "#{@namespace.name}:#{params[:id]}"
+      @page = @namespace.pages.accessible_by(current_ability).find_by_slug! "#{@namespace.name}:#{params[:id].downcase}"
       authorize! :read, @page
       render :show
     rescue ActiveRecord::RecordNotFound
@@ -77,7 +77,7 @@ class PagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page
-      @page = @namespace.pages.accessible_by(current_ability).find_by_slug "#{@namespace.name}:#{params[:id]}"
+      @page = @namespace.pages.accessible_by(current_ability).find_by_slug "#{@namespace.name}:#{params[:id].downcase}"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
