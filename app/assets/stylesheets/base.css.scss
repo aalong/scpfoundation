@@ -37,7 +37,11 @@ body {
   line-height: 16px;
   width: 300px;
   img { width: 300px }
-  text-align: center !important;
+  span {
+    display: block;
+    text-align: left;
+    padding-left: 7px;
+  }
 }
 
 table {
