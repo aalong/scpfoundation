@@ -57,7 +57,7 @@ class MarkdownParser
     result = result.gsub('[[div class="rimg"]]', '[[div class="right"]]')
     result = result.gsub('[[div class="cimg"]]', '[[div class="center"]]')
     result = result.gsub('[[div class="limg"]]', '[[div class="left"]]')
-    result = result.gsub(/\[\[div class=\"(\w+)\"\]\]\s*\[\[image (.*?) [\s\S]*\]\]\s*\[\[span\]\]([\s\S]+?)\[\[\/span\]\]\s*\[\[\/div\]\]/i, '[img \1 i.scp.su/\2 \3]')
+    result = result.gsub(/\[\[div class=\"(\w+)\"\]\]\s*\[\[image (.*?) [\s\S]*\]\]\s*\[\[span\]\]([\s\S]+?)\[\[\/span\]\]\s*\[\[\/div\]\]/i, '[img \1 resure.net/scp/\2 \3]')
     result = result.gsub(/\[\[\[(.*?)\]\]\]/i, '[[\1]]')
     result = result.gsub(/\[\[\[\/(.*?)\]\]\]/i, '[[/\1]]')
     result = result.gsub(/(?<=[^\[])\[([\w-]+)\](?=[^\]])/i, '[[\1]]')
