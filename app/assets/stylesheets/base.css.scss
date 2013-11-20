@@ -165,9 +165,9 @@ div.field_with_errors {
 }
 
 #header_placeholder {
-  // clear: both;
-  // @include clearfix();
-  // height: 42px;
+  clear: both;
+  @include clearfix();
+  height: 42px;
 }
 
 .hidden {
@@ -257,7 +257,6 @@ p.right.img {
 
 h2#page_title, #page_title a {
   color: #444;
-  margin-top: 40px;
   font-weight: normal;
 }
 
