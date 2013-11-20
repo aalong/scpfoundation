@@ -60,6 +60,7 @@ class MarkdownParser
     result = result.gsub(/\[\[div class=\"(\w+)\"\]\]\s*\[\[image (.*?) [\s\S]*\]\]\s*\[\[span\]\]([\s\S]+?)\[\[\/span\]\]\s*\[\[\/div\]\]/i, '[img \1 resure.net/scp/\2 \3]')
     result = result.gsub(/\[\[\[(.*?)\]\]\]/i, '[[\1]]')
     result = result.gsub(/\[\[\[\/(.*?)\]\]\]/i, '[[/\1]]')
+    result = result.gsub(/^(\-{4,})$/, "\n\n\\1\n")
     # result = result.gsub(/(?<=[^\[])\[([\w-]+)\](?=[^\]])/i, '[[\1]]')
     result = result.gsub(/^#(.*?)$/i, '1. \1')
     result = result.gsub(/\[\[collapsible\s*show="(.*?)"\s*hide="(.*?)"\s*\]\]([\s\S]*)\[\[\/collapsible\]\]/i, '[toggle "\1" "\2"]\3[/toggle]')
