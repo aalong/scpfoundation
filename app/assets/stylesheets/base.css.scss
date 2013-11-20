@@ -40,7 +40,6 @@ body {
   span {
     display: block;
     text-align: center;
-    padding-left: 7px;
   }
 }
 
@@ -158,9 +157,9 @@ div.field_with_errors {
 }
 
 #header_placeholder {
-  clear: both;
-  @include clearfix();
-  height: 42px;
+  // clear: both;
+  // @include clearfix();
+  // height: 42px;
 }
 
 .hidden {
@@ -227,11 +226,6 @@ textarea.wmd-input {
 }
 
 
-h2#page-title, #page_title a {
-  color: #444;
-  font-weight: normal;
-}
-
 .message_mention {
   padding-left: 10px;
   font-size: 70%;
@@ -252,6 +246,17 @@ p.right.img {
 .container .navbar-header a.namespace-brand {
   margin-left: -23px;
 }
+
+h2#page_title, #page_title a {
+  color: #444;
+  margin-top: 40px;
+  font-weight: normal;
+}
+
+#page_title {
+  margin-top: 0px;
+}
+
 
 ins {
   background: #D2FFD5;

@@ -38,13 +38,18 @@
 
   @media (min-width: 768px) {
     // border-right: 2px dashed #aaa;
-    border-right: 1px dashed #e7e7e7;
+    border: 1px solid #e7e7e7;
     padding: 0;
     padding-right: 15px;
     text-align: left;
     max-width: 145px;
     overflow-wrap: break-word;
     word-wrap: break-word;
+    left: 5%;
+    width: 15%;
+    max-width: 160px;
+    padding-right: 7px;
+    margin-top: 41px;
   }
 }
 
