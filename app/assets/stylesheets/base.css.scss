@@ -2,6 +2,8 @@
 $sans-font-family: Verdana, Tahoma, "Lucida Grande", Arial, sans-serif;
 $serif-font-family: Georgia, "Times New Roman", Times, serif;
 
+$body-bg: #f6f6f6;
+
 $font-size-base: 14px;
 $font-family-base: $sans-font-family;
 
@@ -9,8 +11,9 @@ $link-color: #06a;
 $link-hover-color: #a00;
 
 $navbar-height: 31px;
+$navbar-default-bg: rgba(236, 229, 202, 0.93);
 
-$footer-background: #fff;
+$footer-background: rgba(236, 229, 202, 0.93);
 $footer-color: #888;
 
 @import "twitter/bootstrap";
@@ -69,6 +72,11 @@ img {
 .navbar-notifications {
   padding-right: 8px;
   margin-top: 6px;
+}
+
+#notifications_counter_container {
+  background-color: rgba(0, 0, 0, 0.11);
+  color: #777;
 }
 
 .navbar-text {
