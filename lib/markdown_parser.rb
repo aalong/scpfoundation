@@ -60,7 +60,7 @@ class MarkdownParser
     result = result.gsub(/\[\[div class=\"(\w+)\"\]\]\s*\[\[image (.*?) [\s\S]*\]\]\s*\[\[span\]\]([\s\S]+?)\[\[\/span\]\]\s*\[\[\/div\]\]/i, '[img \1 resure.net/scp/\2 \3]')
     result = result.gsub(/\[\[\[(.*?)\]\]\]/i, '[[\1]]')
     result = result.gsub(/\[\[\[\/(.*?)\]\]\]/i, '[[/\1]]')
-    result = result.gsub(/(?<=[^\[])\[([\w-]+)\](?=[^\]])/i, '[[\1]]')
+    # result = result.gsub(/(?<=[^\[])\[([\w-]+)\](?=[^\]])/i, '[[\1]]')
     result = result.gsub(/^#(.*?)$/i, '1. \1')
     result = result.gsub(/\[\[collapsible\s*show="(.*?)"\s*hide="(.*?)"\s*\]\]([\s\S]*)\[\[\/collapsible\]\]/i, '[toggle "\1" "\2"]\3[/toggle]')
 
@@ -91,7 +91,7 @@ class MarkdownParser
         </div>
       </div>')
     result = result.gsub /\[\[([\w.\-\_\/]+)\:([\w.\-\_\/#]+)\s*\|\s*([\wа-яА-Я\d\s\-\:\!\?.,#'"&;]+)\]\]/i, '<a href="http://\1.' + @domain + '/\2">\3</a>'
-    result = result.gsub /\[\[([\w.,\-\_\/#]+)\s*\|\s*([\wа-яА-Я\d\s\-\:\!\?,.#'"&;]+)\]\]/i, '<a href="http://' + @domain + '/\1">\2</a>'
+    result = result.gsub /\[\[([\w.,\-\_\/#]+)\s*\|\s*([\wа-яА-Я\d\s\/\-\:\!\?,.#'"&;]+)\]\]/i, '<a href="http://' + @domain + '/\1">\2</a>'
     result = result.gsub /\[\[\*([\w.,\-\_\/#]+)\]\]/i, '<a href="http://' + @domain + '/users/\1">\1</a>'
     result = result.gsub /\[\[([\w.,\-\_\/#]+)\]\]/i, '<a href="http://' + @domain + '/\1">\1</a>'
   end
