@@ -1,6 +1,5 @@
 = bootstrap_flash
+#header_placeholder.hidden-xs
 - if show_title?
   = content_tag :h2, yield(:title), id: 'page_title', class: 'page-header'
-- else
-  #header_placeholder.hidden-xs
 = yield
