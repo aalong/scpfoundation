@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 gem 'pg'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'slim-rails'
-gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails'
+#gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails'
+gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -21,7 +22,7 @@ gem 'russian'
 gem 'awesome_print'
 gem 'will_paginate', '~> 3.0.0'
 gem 'bootstrap-will_paginate'
-gem 'compass-rails', "~> 2.0.alpha.0"
+gem 'compass-rails'
 gem 'chosen-rails', github: 'tsechingho/chosen-rails', branch: 'master'
 gem 'jquery-atwho-rails'
 gem 'simple_form'

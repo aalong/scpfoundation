@@ -3,15 +3,15 @@ div.navbar.navbar-fixed-top.navbar-default
 
     div.navbar-header
       button*{ type: 'button', class: 'navbar-toggle', 'data-toggle' => 'collapse', 'data-target' => '.navbar-ex1-collapse' }
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
+        span.fa.fa-bar
+        span.fa.fa-bar
+        span.fa.fa-bar
 
       - if current_user
         p.navbar-text.navbar-notifications
           a href='/notifications'
             span.badge#notifications_counter_container
-              span.icon-inbox
+              span.fa.fa-inbox
               '
               span#notifications_counter' = current_user.unread_notifications
 
@@ -32,16 +32,16 @@ div.navbar.navbar-fixed-top.navbar-default
             ul.dropdown-menu aria-labelledby='profile_drop' role='menu'
               li role='presentation'
                 = link_to current_user, role: 'menuitem'
-                  i.icon-user &nbsp;
+                  span.fa.fa-user &nbsp;
                   = t('.profile')
               li role='presentation'
                     = link_to edit_user_registration_url, role: 'menuitem'
-                      i.icon-gear &nbsp;
+                      span.fa.fa-gear &nbsp;
                       = t('.preferences')
               li role='presentation' class='divider'
               li role='presentation'
                 = link_to destroy_user_session_path, method: :delete, role: 'menuitem'
-                  i.icon-signout &nbsp;
+                  span.fa.fa-signout &nbsp;
                   = t('.sign_out')
         - else
           li = link_to t('.sign_in'), new_user_session_path

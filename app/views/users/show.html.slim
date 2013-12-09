@@ -36,34 +36,34 @@ div#user_profile.row
     br
     span
       = link_to '/pages'
-        span.icon-inbox
+        span.fa.fa-inbox
         ' 
         = t('.send_message')
     - if current_user && current_user.member?
       br
       span
         = link_to '/pages'
-          span.icon-eye-open
+          span.fa.fa-eye-open
           '
           = t('.flag')
     - if current_user && current_user.moderator?
       hr
       span
         = link_to '/pages'
-          span.icon-warning-sign
+          span.fa.fa-warning-sign
           '
           = t('.warnings')
       br
       span
         = link_to '/pages'
-          span.icon-screenshot
+          span.fa.fa-screenshot
           '
           = t('.block')
     - if current_user && current_user.admin?
       br
       span
         = link_to '/pages'
-          span.icon-edit
+          span.fa.fa-edit
           '
           = t('.edit')
 

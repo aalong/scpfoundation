@@ -9,13 +9,13 @@
       ';
       div.clear.visible-xs
       ' app revision:
-      span.icon-github
+      span.fa.fa-github
       '
       - git_tag = ENV['GIT_TAG'] || `git describe --always` || ''
       a href="https://github.com/resure/scpfoundation/commit/#{git_tag}"
         = git_tag.strip
       ';
       div.clear.visible-xs
-      span.icon-trello
+      span.fa.fa-trello
       '
       a href="https://trello.com/b/HbI92PF6" Public Dev Board

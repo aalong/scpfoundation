@@ -17,19 +17,19 @@ div#page-content.hyphenate
   div.page-actions
     - if can? :use, @namespace
       =' link_to edit_page_path(@page), class: 'btn btn-default btn-xs' do
-        i.icon-pencil &nbsp;
+        span.fa.fa-pencil &nbsp;
         =' t('.edit')
     =' link_to page_versions_path(@page), class: 'btn btn-default btn-xs' do
-      i.icon-list-alt &nbsp;
+      span.fa.fa-list-alt &nbsp;
       =' t('.versions')
     div.clear.visible-phone
     - if can?(:comment, @page)
       =' link_to page_comments_path(@page), class: 'btn btn-default btn-xs' do
-        i.icon-comment &nbsp;
+        span.fa.fa-comment &nbsp;
         =' t('.comments')
     - if can?(:vote, @page)
       =' link_to page_votes_path(@page), class: 'btn btn-default btn-xs' do
-        i.icon-certificate &nbsp;
+        span.fa.fa-certificate &nbsp;
         =' t('.rate')
 
 /* div#page-tags */

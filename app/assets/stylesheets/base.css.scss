@@ -16,8 +16,7 @@ $navbar-default-bg: rgba(236, 229, 202, 0.93);
 $footer-background: rgba(236, 229, 202, 0.93);
 $footer-color: #888;
 
-@import "twitter/bootstrap";
-@import "font-awesome";
+@import "bootstrap";
 @import "mixins";
 @import "flags16";
 @import "wmd";
